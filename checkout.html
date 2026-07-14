@@ -242,30 +242,53 @@
                                     <div class="payment-radios-column">
                                         <label class="payment-radio-card active" id="codMethod">
                                             <input type="radio" name="paymentMethod" value="cod" checked>
-                                            <span class="pay-radio-desc">
-                                                <strong>Cash on Delivery</strong>
-                                                <span>Pay in cash upon delivery</span>
-                                            </span>
+                                            <div class="pay-logo-wrapper">
+                                                <svg class="pay-logo cod-logo" viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg" style="width:160px; height:38px;">
+                                                    <rect width="160" height="50" rx="6" fill="#F4F6F6" stroke="#D5D8DC" stroke-width="1"/>
+                                                    <!-- Truck Body -->
+                                                    <path d="M25 15 H42 V32 H25 Z" fill="#5C3E21"/>
+                                                    <path d="M42 20 H49 L54 26 V32 H42 Z" fill="#C29F74"/>
+                                                    <circle cx="30" cy="35" r="4" fill="#333"/>
+                                                    <circle cx="48" cy="35" r="4" fill="#333"/>
+                                                    <!-- COD Text Badge -->
+                                                    <rect x="65" y="12" width="75" height="26" rx="4" fill="#2ECC71"/>
+                                                    <text x="102" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="15" fill="#FFF" text-anchor="middle">COD</text>
+                                                </svg>
+                                            </div>
                                         </label>
 
                                         <label class="payment-radio-card" id="cardMethod">
                                             <input type="radio" name="paymentMethod" value="card">
-                                            <span class="pay-radio-desc">
-                                                <strong>Credit / Debit Card</strong>
-                                                <span class="card-logo-row">
-                                                    <span class="pay-badge visa" style="font-size:0.65rem;padding:2px 4px;">VISA</span>
-                                                    <span class="pay-badge mastercard" style="font-size:0.65rem;padding:2px 4px;">MC</span>
-                                                    <span class="pay-badge meezan" style="font-size:0.65rem;padding:2px 4px;">Meezan</span>
-                                                </span>
-                                            </span>
+                                            <div class="pay-logo-wrapper">
+                                                <div class="card-logos-flex" style="display:flex; gap: 8px;">
+                                                    <!-- Visa Logo -->
+                                                    <svg class="pay-logo visa-logo" viewBox="0 0 75 50" xmlns="http://www.w3.org/2000/svg" style="width:70px; height:38px;">
+                                                        <rect width="75" height="50" rx="6" fill="#FFFFFF" stroke="#D5D8DC" stroke-width="1"/>
+                                                        <path d="M12 18 L18 34 H23 L29 18 H24 L21.5 29.5 L19 18 H12 Z" fill="#1A1F71"/>
+                                                        <path d="M30 18 H34 V34 H30 Z" fill="#1A1F71"/>
+                                                        <path d="M43.5 19.5 C42 18.5 40 18 38 18 C34 18 31.5 20 31.5 23.5 C31.5 28 37.5 28 37.5 30.5 C37.5 31.5 35.5 32 34 32 C32 32 30 31 29 30.5 L28 33.5 C29.5 34.5 32 35 34 35 C38.5 35 41.5 33 41.5 29.5 C41.5 25 35.5 24.5 35.5 22.5 C35.5 21.5 37 21 38.5 21 C40.5 21 42.5 21.5 43.5 22.5 L44.5 19.5 Z" fill="#1A1F71"/>
+                                                        <path d="M52.5 18 H49 L42.5 34 H47.5 L48.5 31.5 H54.5 L55 34 H60 L56 18 H52.5 Z M50 28 L51.5 23 L53.5 28 H50 Z" fill="#1A1F71"/>
+                                                        <path d="M12 18 L15 26 L16 18 Z" fill="#F7B600"/>
+                                                    </svg>
+                                                    <!-- Mastercard Logo -->
+                                                    <svg class="pay-logo mastercard-logo" viewBox="0 0 75 50" xmlns="http://www.w3.org/2000/svg" style="width:70px; height:38px;">
+                                                        <rect width="75" height="50" rx="6" fill="#FFFFFF" stroke="#D5D8DC" stroke-width="1"/>
+                                                        <circle cx="31" cy="25" r="14" fill="#EB001B" opacity="0.9"/>
+                                                        <circle cx="44" cy="25" r="14" fill="#F79E1B" opacity="0.9"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
                                         </label>
 
                                         <label class="payment-radio-card" id="bankMethod">
                                             <input type="radio" name="paymentMethod" value="bank">
-                                            <span class="pay-radio-desc">
-                                                <strong>Bank Transfer</strong>
-                                                <span>Transfer directly to our bank account</span>
-                                            </span>
+                                            <div class="pay-logo-wrapper">
+                                                <svg class="pay-logo bank-logo" viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg" style="width:160px; height:38px;">
+                                                    <rect width="160" height="50" rx="6" fill="#F4F6F6" stroke="#D5D8DC" stroke-width="1"/>
+                                                    <path d="M20 38 H50 V40 H20 Z M22 25 H26 V36 H22 Z M30 25 H34 V36 H30 Z M38 25 H42 V36 H38 Z M46 25 H50 V36 H46 Z M20 22 L35 12 L50 22 Z" fill="#8C1D40"/>
+                                                    <text x="65" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#8C1D40" letter-spacing="0.5px">BANK TRANSFER</text>
+                                                </svg>
+                                            </div>
                                         </label>
                                     </div>
 
@@ -530,11 +553,11 @@
                 <div class="payments-accepted">
                     <span class="payment-label">We Accept</span>
                     <div class="payment-logos">
-                        <span class="pay-badge visa">VISA</span>
-                        <span class="pay-badge mastercard">MasterCard</span>
-                        <span class="pay-badge meezan">Meezan Bank</span>
-                        <span class="pay-badge easypaisa">easypaisa</span>
-                        <span class="pay-badge jazzcash">JazzCash</span>
+                        <svg class="pay-logo-img" viewBox="0 0 75 50" xmlns="http://www.w3.org/2000/svg" style="width:50px; height:30px;"><rect width="75" height="50" rx="4" fill="#FFF" stroke="#D5D8DC" stroke-width="1"/><path d="M12 18 L18 34 H23 L29 18 H24 L21.5 29.5 L19 18 H12 Z" fill="#1A1F71"/><path d="M30 18 H34 V34 H30 Z" fill="#1A1F71"/><path d="M43.5 19.5 C42 18.5 40 18 38 18 C34 18 31.5 20 31.5 23.5 C31.5 28 37.5 28 37.5 30.5 C37.5 31.5 35.5 32 34 32 C32 32 30 31 29 30.5 L28 33.5 C29.5 34.5 32 35 34 35 C38.5 35 41.5 33 41.5 29.5 C41.5 25 35.5 24.5 35.5 22.5 C35.5 21.5 37 21 38.5 21 C40.5 21 42.5 21.5 43.5 22.5 L44.5 19.5 Z" fill="#1A1F71"/><path d="M52.5 18 H49 L42.5 34 H47.5 L48.5 31.5 H54.5 L55 34 H60 L56 18 H52.5 Z M50 28 L51.5 23 L53.5 28 H50 Z" fill="#1A1F71"/><path d="M12 18 L15 26 L16 18 Z" fill="#F7B600"/></svg>
+                        <svg class="pay-logo-img" viewBox="0 0 75 50" xmlns="http://www.w3.org/2000/svg" style="width:50px; height:30px;"><rect width="75" height="50" rx="4" fill="#FFF" stroke="#D5D8DC" stroke-width="1"/><circle cx="31" cy="25" r="14" fill="#EB001B" opacity="0.9"/><circle cx="44" cy="25" r="14" fill="#F79E1B" opacity="0.9"/></svg>
+                        <img class="pay-logo-img" src="assets/meezan-logo.png" alt="Meezan Bank" style="width:50px; height:30px; object-fit:contain; vertical-align:middle;">
+                        <img class="pay-logo-img" src="assets/easypaisa-logo.png" alt="Easypaisa" style="width:50px; height:30px; object-fit:contain; vertical-align:middle;">
+                        <img class="pay-logo-img" src="assets/jazzcash-logo.png" alt="JazzCash" style="width:50px; height:30px; object-fit:contain; vertical-align:middle;">
                     </div>
                 </div>
             </div>

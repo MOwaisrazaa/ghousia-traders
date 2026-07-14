@@ -2397,11 +2397,18 @@ img {
     letter-spacing: 0.5px;
     margin-bottom: 14px;
 }
-.payment-methods-grid {
+.payment-methods-grid, .payment-logos {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     justify-content: center;
+    align-items: center;
+}
+.pay-logo-img {
+    transition: transform var(--transition-fast);
+}
+.pay-logo-img:hover {
+    transform: scale(1.08);
 }
 
 /* 24. Secure Checkout Page */
@@ -2631,10 +2638,10 @@ img {
 }
 .payment-radio-card {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
-    padding: 14px;
+    padding: 10px 14px;
     background-color: var(--bg-light);
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -2643,14 +2650,17 @@ img {
     accent-color: var(--primary);
     width: 18px;
     height: 18px;
-    margin-right: 12px;
-    margin-top: 2px;
+    margin-right: 14px;
+    flex-shrink: 0;
 }
-.pay-radio-desc {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.pay-logo-wrapper {
     flex: 1;
+    display: flex;
+    align-items: center;
+}
+.pay-logo {
+    height: 38px;
+    max-width: 100%;
 }
 .pay-radio-desc strong {
     font-size: 0.85rem;
