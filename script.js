@@ -535,5 +535,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (checkoutTotalVal) checkoutTotalVal.textContent = 'PKR 62,148';
         });
     }
+
+    // 13. Contact Us Page Form Submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            if (name && email && subject && message) {
+                alert(`✉️ Thank you, ${name}! Your message has been sent successfully. We will get back to you within 24 hours.`);
+                contactForm.reset();
+            } else {
+                alert('⚠️ Please fill in all required fields.');
+            }
+        });
+    }
 });
 
