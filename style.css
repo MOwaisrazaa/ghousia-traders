@@ -236,6 +236,18 @@ img {
     color: var(--primary);
 }
 
+.brand-logo-link {
+    height: 52px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+}
+.brand-logo-link svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
 /* Nav Links */
 .nav-menu {
     display: flex;
@@ -3027,6 +3039,11 @@ img {
 @media (max-width: 768px) {
     .top-bar {
         display: none; /* Hide top bar for screen optimization */
+    }
+
+    .brand-logo-link {
+        width: 200px;
+        height: 40px;
     }
 
     .mobile-menu-toggle {
