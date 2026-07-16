@@ -76,6 +76,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchOverlay.classList.remove('active');
             }
         });
+        // Handle desktop search input enter submission
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+                    window.location.href = `shop.html?search=${encodeURIComponent(searchInput.value.trim())}`;
+                }
+            });
+        }
+    }
+
+    // Handle mobile search input enter submission
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
+    if (mobileSearchInput) {
+        mobileSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && mobileSearchInput.value.trim() !== '') {
+                window.location.href = `shop.html?search=${encodeURIComponent(mobileSearchInput.value.trim())}`;
+            }
+        });
     }
 
     // 3. Testimonials Slider (Runs on about.html)
