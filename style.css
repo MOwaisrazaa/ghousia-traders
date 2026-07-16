@@ -3021,7 +3021,7 @@ img {
     }
 
     .mobile-search-form {
-        width: 85%;
+        width: 90%;
         position: relative;
         display: flex;
         align-items: center;
@@ -3029,7 +3029,7 @@ img {
 
     .mobile-search-input {
         width: 100%;
-        padding: 9px 16px 9px 40px;
+        padding: 9px 48px 9px 16px;
         border-radius: 20px;
         border: 1px solid var(--primary-light);
         background-color: var(--bg-light);
@@ -3042,13 +3042,31 @@ img {
         border-color: var(--secondary);
     }
 
-    .mobile-search-icon {
+    .mobile-search-btn {
         position: absolute;
-        left: 14px;
-        color: var(--text-muted);
-        width: 18px;
-        height: 18px;
-        pointer-events: none;
+        right: 1px;
+        top: 1px;
+        height: calc(100% - 2px);
+        width: 46px;
+        background-color: var(--secondary);
+        color: var(--primary);
+        border: none;
+        border-radius: 0 19px 19px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .mobile-search-btn:hover {
+        background-color: var(--primary-light);
+        color: var(--secondary);
+    }
+
+    .mobile-search-btn i {
+        width: 16px;
+        height: 16px;
     }
 
     .nav-menu {

@@ -87,14 +87,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Handle mobile search input enter submission
+    // Handle mobile search input enter submission & button click
     const mobileSearchInput = document.getElementById('mobileSearchInput');
+    const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+
     if (mobileSearchInput) {
-        mobileSearchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && mobileSearchInput.value.trim() !== '') {
+        const triggerMobileSearch = () => {
+            if (mobileSearchInput.value.trim() !== '') {
                 window.location.href = `shop.html?search=${encodeURIComponent(mobileSearchInput.value.trim())}`;
             }
+        };
+
+        mobileSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                triggerMobileSearch();
+            }
         });
+
+        if (mobileSearchBtn) {
+            mobileSearchBtn.addEventListener('click', () => {
+                triggerMobileSearch();
+            });
+        }
     }
 
     // 3. Testimonials Slider (Runs on about.html)
