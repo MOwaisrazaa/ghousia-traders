@@ -34,28 +34,38 @@
     <!-- Main Header -->
     <header class="main-header">
         <div class="header-container">
-                        <a href="index.html" class="logo brand-logo-link">
+                                                            <a href="index.html" class="logo brand-logo-link">
                 <svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#B38728" />
-                            <stop offset="25%" stop-color="#FBF5B7" />
-                            <stop offset="50%" stop-color="#DAA520" />
-                            <stop offset="75%" stop-color="#FBF5B7" />
-                            <stop offset="100%" stop-color="#AA771C" />
+                        <!-- Premium Gold Metallic Gradient -->
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FCE0AD" />
+                            <stop offset="20%" stop-color="#DFAC4D" />
+                            <stop offset="40%" stop-color="#C68B29" />
+                            <stop offset="60%" stop-color="#FDF1D6" />
+                            <stop offset="80%" stop-color="#DFAC4D" />
+                            <stop offset="100%" stop-color="#8E5B10" />
                         </linearGradient>
-                        <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-                            <feDropShadow dx="1.5" dy="1.5" stdDeviation="1" flood-color="#000" flood-opacity="0.6" />
+                        <!-- Dark Gold/Bronze for 3D extrusion sides -->
+                        <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#5A3E1B" />
+                            <stop offset="50%" stop-color="#402B12" />
+                            <stop offset="100%" stop-color="#2D1D0B" />
+                        </linearGradient>
+                        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="2" dy="3" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.65" />
                         </filter>
                     </defs>
-                    <text x="160" y="44" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="36" font-weight="bold" fill="url(#goldGrad)" filter="url(#shadow)" text-anchor="middle" letter-spacing="0.5px">Ghousia Traders</text>
-                    <line x1="20" y1="58" x2="300" y2="58" stroke="url(#goldGrad)" stroke-width="1.5" filter="url(#shadow)"/>
+                    
+                    <!-- Calligraphic Cursive 3D Text "Ghousia Traders" (Larger, Centered, No Underlines) -->
                     <g filter="url(#shadow)">
-                        <polygon points="160,54 164,58 160,62 156,58" fill="url(#goldGrad)"/>
-                        <path d="M152,58 C145,54 140,62 148,58" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-                        <path d="M148,58 C140,56 135,60 144,58" fill="none" stroke="url(#goldGrad)" stroke-width="1"/>
-                        <path d="M168,58 C175,54 180,62 172,58" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-                        <path d="M172,58 C180,56 185,60 176,58" fill="none" stroke="url(#goldGrad)" stroke-width="1"/>
+                        <!-- 3D Extrusion Layers (Dark Bronze) -->
+                        <text x="10" y="54" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#bronzeGrad)" text-anchor="start">Ghousia Traders</text>
+                        <text x="10" y="53" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#bronzeGrad)" text-anchor="start">Ghousia Traders</text>
+                        <text x="10" y="52" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#bronzeGrad)" text-anchor="start">Ghousia Traders</text>
+                        
+                        <!-- Front Face (Gold Gradient) -->
+                        <text x="10" y="51" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#goldGrad)" text-anchor="start">Ghousia Traders</text>
                     </g>
                 </svg>
             </a>
@@ -515,28 +525,38 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-col brand-col">
-                                <a href="index.html" class="logo brand-logo-link">
+                                                                    <a href="index.html" class="logo brand-logo-link">
                 <svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#B38728" />
-                            <stop offset="25%" stop-color="#FBF5B7" />
-                            <stop offset="50%" stop-color="#DAA520" />
-                            <stop offset="75%" stop-color="#FBF5B7" />
-                            <stop offset="100%" stop-color="#AA771C" />
+                        <!-- Premium Gold Metallic Gradient -->
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FCE0AD" />
+                            <stop offset="20%" stop-color="#DFAC4D" />
+                            <stop offset="40%" stop-color="#C68B29" />
+                            <stop offset="60%" stop-color="#FDF1D6" />
+                            <stop offset="80%" stop-color="#DFAC4D" />
+                            <stop offset="100%" stop-color="#8E5B10" />
                         </linearGradient>
-                        <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-                            <feDropShadow dx="1.5" dy="1.5" stdDeviation="1" flood-color="#000" flood-opacity="0.6" />
+                        <!-- Dark Gold/Bronze for 3D extrusion sides -->
+                        <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#5A3E1B" />
+                            <stop offset="50%" stop-color="#402B12" />
+                            <stop offset="100%" stop-color="#2D1D0B" />
+                        </linearGradient>
+                        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="2" dy="3" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.65" />
                         </filter>
                     </defs>
-                    <text x="160" y="44" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="36" font-weight="bold" fill="url(#goldGrad)" filter="url(#shadow)" text-anchor="middle" letter-spacing="0.5px">Ghousia Traders</text>
-                    <line x1="20" y1="58" x2="300" y2="58" stroke="url(#goldGrad)" stroke-width="1.5" filter="url(#shadow)"/>
+                    
+                    <!-- Calligraphic Cursive 3D Text "Ghousia Traders" (Larger, Centered, No Underlines) -->
                     <g filter="url(#shadow)">
-                        <polygon points="160,54 164,58 160,62 156,58" fill="url(#goldGrad)"/>
-                        <path d="M152,58 C145,54 140,62 148,58" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-                        <path d="M148,58 C140,56 135,60 144,58" fill="none" stroke="url(#goldGrad)" stroke-width="1"/>
-                        <path d="M168,58 C175,54 180,62 172,58" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-                        <path d="M172,58 C180,56 185,60 176,58" fill="none" stroke="url(#goldGrad)" stroke-width="1"/>
+                        <!-- 3D Extrusion Layers (Dark Bronze) -->
+                        <text x="10" y="54" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#bronzeGrad)" text-anchor="start">Ghousia Traders</text>
+                        <text x="10" y="53" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#bronzeGrad)" text-anchor="start">Ghousia Traders</text>
+                        <text x="10" y="52" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#bronzeGrad)" text-anchor="start">Ghousia Traders</text>
+                        
+                        <!-- Front Face (Gold Gradient) -->
+                        <text x="10" y="51" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#goldGrad)" text-anchor="start">Ghousia Traders</text>
                     </g>
                 </svg>
             </a>
