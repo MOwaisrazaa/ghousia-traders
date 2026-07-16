@@ -241,7 +241,7 @@ img {
     width: 340px;
     display: flex;
     align-items: center;
-    margin-left: -12px;
+    margin-left: -24px;
 }
 .brand-logo-link svg {
     width: 100%;
@@ -252,8 +252,8 @@ img {
 /* Nav Links */
 .nav-menu {
     display: flex;
-    gap: 28px;
-    margin-left: 45px;
+    gap: 20px;
+    margin-left: auto;
     margin-right: auto;
 }
 
