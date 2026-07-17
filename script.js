@@ -58,6 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Click listener to navigate to account sign in page
+    const headerAccountBtns = document.querySelectorAll('button[aria-label="Account"]');
+    headerAccountBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            window.location.href = 'signin.html';
+        });
+    });
+
     // 2. Search Overlay Toggle
     const searchBtn = document.getElementById('searchBtn');
     const searchOverlay = document.getElementById('searchOverlay');
@@ -598,6 +606,145 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('⚠️ Please fill in all required fields.');
             }
         });
+    }
+
+    // Redirect to wishlist.html on clicking wishlistBtn
+    const headerWishlistBtn = document.getElementById('wishlistBtn');
+    if (headerWishlistBtn) {
+        headerWishlistBtn.addEventListener('click', () => {
+            window.location.href = 'wishlist.html';
+        });
+    }
+
+    // Wishlist Page Logic (Only runs on wishlist.html)
+    const wishlistGrid = document.getElementById('wishlistGrid');
+    const selectAllWishlist = document.getElementById('selectAllWishlist');
+    const selectAllLabel = document.getElementById('selectAllLabel');
+    const clearWishlistBtn = document.getElementById('clearWishlistBtn');
+    const shareWishlistBtn = document.getElementById('shareWishlistBtn');
+    const wishlistEmptyState = document.getElementById('wishlistEmptyState');
+    const wishlistCountBadge = document.getElementById('wishlistCount');
+    const wishlistItemsCountText = document.getElementById('wishlistItemsCountText');
+    const wishlistToolbar = document.querySelector('.wishlist-toolbar');
+
+    if (wishlistGrid) {
+        const updateWishlistCounters = () => {
+            const cards = wishlistGrid.querySelectorAll('.wishlist-card');
+            const totalCount = cards.length;
+            
+            // Update badges
+            if (wishlistCountBadge) wishlistCountBadge.textContent = totalCount;
+            if (wishlistItemsCountText) wishlistItemsCountText.textContent = `${totalCount} Items`;
+            if (selectAllLabel) selectAllLabel.textContent = `Select All (${totalCount})`;
+            
+            // If empty, show empty state
+            if (totalCount === 0) {
+                wishlistGrid.style.display = 'none';
+                if (wishlistToolbar) wishlistToolbar.style.display = 'none';
+                if (wishlistEmptyState) wishlistEmptyState.style.display = 'block';
+            }
+        };
+
+        // Select All Handler
+        if (selectAllWishlist) {
+            selectAllWishlist.addEventListener('change', () => {
+                const checkboxes = wishlistGrid.querySelectorAll('.wishlist-item-checkbox');
+                checkboxes.forEach(cb => cb.checked = selectAllWishlist.checked);
+                
+                const checkedCount = selectAllWishlist.checked ? checkboxes.length : 0;
+                if (selectAllLabel) selectAllLabel.textContent = `Select All (${checkedCount})`;
+            });
+        }
+
+        // Individual Checkbox Click Handler
+        wishlistGrid.addEventListener('change', (e) => {
+            if (e.target.classList.contains('wishlist-item-checkbox')) {
+                const checkboxes = wishlistGrid.querySelectorAll('.wishlist-item-checkbox');
+                const checkedCheckboxes = wishlistGrid.querySelectorAll('.wishlist-item-checkbox:checked');
+                
+                if (selectAllWishlist) {
+                    selectAllWishlist.checked = checkboxes.length === checkedCheckboxes.length;
+                }
+                if (selectAllLabel) {
+                    selectAllLabel.textContent = `Select All (${checkedCheckboxes.length})`;
+                }
+            }
+        });
+
+        // Add to Cart click handler
+        wishlistGrid.addEventListener('click', (e) => {
+            if (e.target.classList.contains('wishlist-add-to-cart')) {
+                const card = e.target.closest('.wishlist-card');
+                const title = card ? card.querySelector('.wishlist-card-title').textContent : 'Product';
+                
+                // Increment cart counter
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    const currentCount = parseInt(cartCount.textContent) || 0;
+                    cartCount.textContent = currentCount + 1;
+                }
+                
+                alert(`🛒 Added to Cart: ${title}!`);
+            }
+        });
+
+        // Delete Item button click handler (Trash icon)
+        wishlistGrid.addEventListener('click', (e) => {
+            const deleteBtn = e.target.closest('.btn-delete-item');
+            if (deleteBtn) {
+                const card = deleteBtn.closest('.wishlist-card');
+                if (card) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px) scale(0.95)';
+                    card.style.transition = 'all 0.4s ease';
+                    setTimeout(() => {
+                        card.remove();
+                        updateWishlistCounters();
+                    }, 400);
+                }
+            }
+        });
+
+        // Heart action click handler (removes item from wishlist too)
+        wishlistGrid.addEventListener('click', (e) => {
+            const heartBtn = e.target.closest('.wishlist-heart-action');
+            if (heartBtn) {
+                const card = heartBtn.closest('.wishlist-card');
+                if (card) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px) scale(0.95)';
+                    card.style.transition = 'all 0.4s ease';
+                    setTimeout(() => {
+                        card.remove();
+                        updateWishlistCounters();
+                    }, 400);
+                }
+            }
+        });
+
+        // Clear Wishlist click handler
+        if (clearWishlistBtn) {
+            clearWishlistBtn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to clear your entire wishlist?')) {
+                    const cards = wishlistGrid.querySelectorAll('.wishlist-card');
+                    cards.forEach(card => card.remove());
+                    updateWishlistCounters();
+                }
+            });
+        }
+
+        // Share Wishlist click handler
+        if (shareWishlistBtn) {
+            shareWishlistBtn.addEventListener('click', () => {
+                // Copy current URL
+                const shareURL = window.location.href;
+                navigator.clipboard.writeText(shareURL).then(() => {
+                    alert('🔗 Wishlist link copied to clipboard! You can now share it with friends and family.');
+                }).catch(() => {
+                    alert('⚠️ Failed to copy wishlist URL. Copy manually: ' + shareURL);
+                });
+            });
+        }
     }
 });
 
