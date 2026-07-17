@@ -29,22 +29,44 @@ body.signin-page-body {
     font-family: var(--signin-font-sans);
 }
 
+body.signin-page-body *,
+body.signin-page-body *::before,
+body.signin-page-body *::after {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Header Responsiveness & Fluid Spacing Overrides
+   ========================================================================== */
+.signin-page-body .brand-logo-link {
+    width: clamp(220px, 20vw, 340px);
+}
+.signin-page-body .nav-menu {
+    gap: clamp(10px, 1.5vw, 20px);
+}
+.signin-page-body .nav-link {
+    font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+}
+.signin-page-body .header-actions {
+    gap: clamp(8px, 1.2vw, 16px);
+}
+
 
 /* ==========================================================================
    Main Sign-In Container Card
    ========================================================================== */
 .signin-section {
-    padding: 40px 24px;
+    padding: clamp(20px, 4vw, 40px) 16px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .signin-card {
-    display: flex;
-    width: 100%;
-    max-width: 1320px;
-    min-height: 580px;
+    display: grid;
+    grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+    width: min(100%, 1260px);
+    margin: 0 auto;
     background-color: var(--signin-white);
     border: 1px solid var(--signin-border);
     border-radius: 20px;
@@ -55,9 +77,9 @@ body.signin-page-body {
 /* Left Side - Visual Welcome Panel */
 .signin-visual-panel {
     position: relative;
-    flex: 0 0 58%;
+    min-width: 0;
     background-color: #FAF5ED;
-    padding: 50px;
+    padding: clamp(20px, 3vw, 35px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -162,12 +184,11 @@ body.signin-page-body {
 
 /* Right Side - Sign-In Form */
 .signin-form-panel {
-    flex: 0 0 42%;
-    padding: 45px 50px;
+    min-width: 0;
+    padding: clamp(20px, 3vw, 35px) clamp(20px, 4vw, 45px);
     background-color: var(--signin-white);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     border-left: 1px solid var(--signin-border);
 }
 
@@ -306,6 +327,8 @@ body.signin-page-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
     font-size: 0.85rem;
     margin-bottom: 25px;
 }
@@ -384,6 +407,16 @@ body.signin-page-body {
     display: flex;
     gap: 15px;
     margin-bottom: 25px;
+}
+
+@media (max-width: 1100px) {
+    .social-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-social {
+        width: 100%;
+    }
 }
 
 .btn-social {
@@ -675,87 +708,25 @@ body.signin-page-body {
 
 /* Large Tablets & Medium screens (up to 1200px) */
 @media (max-width: 1200px) {
-    .signin-card {
-        max-width: 960px;
-    }
-    .signin-visual-panel {
-        padding: 40px;
-    }
-    .signin-form-panel {
-        padding: 40px;
-    }
     .welcome-heading {
-        font-size: 2.6rem;
+        font-size: 2.4rem;
     }
-    .promo-form {
-        margin-right: 80px;
-    }
-
 }
 
-/* Tablets (up to 992px) */
+/* Tablets (up to 992px) - Stack Layout Vertically */
 @media (max-width: 992px) {
     .signin-section {
-        padding: 30px 20px;
+        padding: 30px 16px;
     }
     .signin-card {
-        max-width: 720px;
+        grid-template-columns: 1fr;
+        border-radius: 16px;
         min-height: auto;
     }
     .signin-visual-panel {
-        flex: 0 0 50%;
-        padding: 35px;
-    }
-    .signin-form-panel {
-        flex: 0 0 50%;
-        padding: 35px;
-    }
-    .welcome-heading {
-        font-size: 2.2rem;
-    }
-    .benefits-list {
-        gap: 15px;
-    }
-    .trust-container {
-        flex-wrap: wrap;
-        gap: 20px 0;
-    }
-    .trust-item {
-        flex: 0 0 50%;
-    }
-    .trust-item:nth-child(2)::after {
-        display: none;
-    }
-    .promo-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 30px;
-    }
-    .promo-text {
-        margin-right: 0;
-    }
-    .promo-form {
         width: 100%;
-        margin-right: 0;
-    }
-    .promo-gift-graphic {
-        opacity: 0.15; /* Subdued background look on smaller screens */
-    }
-
-}
-
-/* Mobile Devices (up to 768px) */
-@media (max-width: 768px) {
-    .signin-card {
-        flex-direction: column;
-        border-radius: 16px;
-    }
-    .signin-visual-panel {
-        flex: 0 0 auto;
-        width: 100%;
-        height: 280px;
-        padding: 30px 24px;
+        height: 240px;
+        padding: 25px;
         justify-content: flex-end;
     }
     .signin-hero-bg {
@@ -765,44 +736,43 @@ body.signin-page-body {
         background: linear-gradient(0deg, rgba(253, 251, 247, 0.95) 0%, rgba(253, 251, 247, 0.4) 60%, rgba(253, 251, 247, 0.1) 100%);
     }
     .signin-flourish {
-        display: none; /* Hide flourish icon on small screens to save space */
+        display: none; /* Hide flourish icon to save space */
     }
     .welcome-heading {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-bottom: 6px;
     }
     .welcome-subtext {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin-bottom: 0;
     }
     .benefits-list {
-        display: none; /* Hide benefits list to keep the header minimal on mobile */
+        display: none; /* Hide benefits list to keep the layout minimal */
     }
     .signin-form-panel {
-        flex: 0 0 auto;
         width: 100%;
-        padding: 30px 24px;
+        padding: 25px;
         border-left: none;
         border-top: 1px solid var(--signin-border);
     }
     .form-heading {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    .trust-item {
-        flex: 0 0 100%;
-        padding: 0;
-        justify-content: flex-start;
-    }
-    .trust-item::after {
-        display: none !important;
-    }
-    .promo-left-group {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    .promo-text {
-        margin-left: 0;
-    }
+}
 
+/* Small Mobile Phones (up to 576px) */
+@media (max-width: 576px) {
+    .signin-section {
+        padding: 15px 10px;
+    }
+    .signin-card {
+        border-radius: 12px;
+    }
+    .signin-visual-panel {
+        height: 180px;
+        padding: 16px;
+    }
+    .signin-form-panel {
+        padding: 20px 16px;
+    }
 }
