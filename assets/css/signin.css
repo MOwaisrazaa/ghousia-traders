@@ -163,7 +163,7 @@ body.signin-page-body {
 /* Right Side - Sign-In Form */
 .signin-form-panel {
     flex: 0 0 42%;
-    padding: 55px;
+    padding: 45px 50px;
     background-color: var(--signin-white);
     display: flex;
     flex-direction: column;
@@ -395,13 +395,15 @@ body.signin-page-body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     font-family: var(--signin-font-sans);
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: var(--signin-brown-dark);
     cursor: pointer;
     transition: all 0.2s ease;
+    white-space: nowrap;
+    padding: 0 10px;
 }
 
 .btn-social:hover {
