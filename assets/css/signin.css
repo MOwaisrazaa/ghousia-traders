@@ -11,7 +11,8 @@
     --signin-cream: #F4EBDD;
     --signin-beige: #E8D8C5;
     --signin-brown-primary: #8B5A2B;
-    --signin-brown-dark: #4A3024;
+    --signin-brown-dark: #3c261c;
+    --signin-brown-light: #453226;
     --signin-text-main: #2D2D2D;
     --signin-text-muted: #77716B;
     --signin-border: #E7E0D8;
@@ -99,7 +100,7 @@ body.signin-page-body *::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(253, 251, 247, 0.9) 0%, rgba(253, 251, 247, 0.65) 10%, rgba(253, 251, 247, 0) 100%);
+    background: linear-gradient(135deg, rgba(253, 251, 247, 0.9) 0%, rgba(253, 251, 247, 0.65) 2%, rgba(253, 251, 247, 0) 100%);
     z-index: 2;
 }
 
@@ -128,7 +129,7 @@ body.signin-page-body *::after {
 
 .welcome-subtext {
     font-size: 1.05rem;
-    color: var(--signin-text-muted);
+    color: var(--signin-brown-light);
     margin-bottom: 40px;
     font-weight: 400;
 }
@@ -173,7 +174,7 @@ body.signin-page-body *::after {
 
 .benefit-desc {
     font-size: 0.85rem;
-    color: var(--signin-text-muted);
+    color: var(--signin-brown-light);
     line-height: 1.4;
 }
 
