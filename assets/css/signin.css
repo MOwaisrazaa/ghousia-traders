@@ -44,9 +44,6 @@ body.signin-page-body *::after {
 .signin-page-body .nav-menu {
     gap: clamp(10px, 1.5vw, 20px);
 }
-.signin-page-body .nav-link {
-    font-size: clamp(0.8rem, 0.9vw, 0.95rem);
-}
 .signin-page-body .header-actions {
     gap: clamp(8px, 1.2vw, 16px);
 }
