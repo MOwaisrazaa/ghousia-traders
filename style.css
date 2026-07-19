@@ -255,7 +255,14 @@ img {
     display: flex;
     align-items: center;
     margin-left: -24px;
+    transition: transform var(--transition-fast), filter var(--transition-fast);
 }
+
+.brand-logo-link:hover {
+    transform: translateY(-1px) scale(1.02);
+    filter: drop-shadow(0 0 10px rgba(245, 211, 147, 0.6));
+}
+
 .brand-logo-link svg {
     width: 100%;
     height: 100%;
@@ -277,11 +284,13 @@ img {
     padding: 8px 0;
     position: relative;
     white-space: nowrap;
+    transition: color var(--transition-fast);
 }
 
 .nav-link:hover, 
 .nav-link.active {
-    color: var(--secondary);
+    color: #F5D393; /* Vibrant bright gold matching active state */
+    text-shadow: 0 0 8px rgba(245, 211, 147, 0.4);
 }
 
 .nav-link::after {
@@ -290,8 +299,10 @@ img {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
-    background-color: var(--secondary);
+    height: 2.5px;
+    background: linear-gradient(90deg, #F5D393 0%, #C29F74 100%);
+    box-shadow: 0 0 8px rgba(245, 211, 147, 0.6);
+    border-radius: 2px;
     transition: width var(--transition-normal);
 }
 
@@ -314,11 +325,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all var(--transition-fast);
 }
 
 .action-btn:hover {
-    background-color: var(--primary-light);
-    color: var(--secondary);
+    background-color: rgba(245, 211, 147, 0.18);
+    color: #F5D393;
+    transform: translateY(-1px);
+    box-shadow: 0 0 10px rgba(245, 211, 147, 0.3);
 }
 
 .action-btn i {
@@ -1410,43 +1424,199 @@ img {
     background-color: #000000;
 }
 
-/* 11. Homepage Hero Slider */
+/* 11. Homepage Hero Banner Redesign */
 .homepage-hero {
-    background-color: var(--bg-alt);
-    padding: 80px 0;
+    background-color: #F6EEE4;
+    padding: 0; /* Full-width edge-to-edge flush with navbar */
 }
-.hero-slider-dots {
+
+.hero-banner-fullwidth {
+    position: relative;
+    /* background-color: #F6EEE4; */
+    background-image: linear-gradient(to right, #F6EEE4 0%, #F6EEE4 0%, rgba(246, 238, 228, 0.85) 45%, rgba(246, 238, 228, 0) 90%), url('assets/homepage_hero_new_family.png');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    height: 420px; /* Adjusted height for family hero */
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-banner-content-container {
+    max-width: var(--container-width); /* 1200px */
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+.hero-banner-content {
+    display: grid;
+    grid-template-columns: 42fr 58fr; /* Spacious text area */
+    height: 100%;
+    width: 100%;
+}
+
+.hero-banner-text-side {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero-badge-decoration {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.hero-badge-line-long {
+    width: 45px;
+    height: 1.5px;
+    background-color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.hero-badge-line-long::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.hero-badge-text {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.hero-banner-heading {
+    font-family: var(--font-heading);
+    font-size: 3.2rem; /* Large and elegant Lora heading */
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+.hero-banner-heading .accent-joy {
+    color: var(--primary); /* Warm brown accent */
+    font-weight: 700;
+}
+
+.hero-banner-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 28px;
+    max-width: 420px;
+}
+
+.btn-hero-cta {
+    background-color: var(--primary); /* Warm dark brown */
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-hero-cta:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(92, 62, 33, 0.2);
+}
+
+.hero-pagination-dots {
     display: flex;
     gap: 8px;
-    margin-top: 30px;
+    margin-top: 36px;
 }
-.hero-slider-dots .dot {
-    width: 8px;
-    height: 8px;
+
+.hero-pagination-dots .dot {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background-color: var(--secondary-light);
+    border: 1px solid var(--primary);
+    background-color: transparent;
     cursor: pointer;
-    transition: var(--transition-fast);
+    transition: all var(--transition-fast);
 }
-.hero-slider-dots .dot.active {
-    background-color: var(--primary);
-    width: 24px;
-    border-radius: 4px;
+
+.hero-pagination-dots .dot.active {
+    background-color: var(--primary); /* Active dot in warm brown */
+    border-color: var(--primary);
 }
-.hero-graphic-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+/* Mobile visual side image */
+.hero-mobile-image {
+    display: none;
 }
-.hero-collage img {
-    max-width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    transform: rotate(1deg);
-    transition: transform var(--transition-normal);
+
+/* Responsive adjustments inside media query */
+@media (max-width: 1024px) {
+    .hero-banner-fullwidth {
+        height: 350px;
+        background-image: linear-gradient(to right, #F6EEE4 0%, #F6EEE4 45%, rgba(246, 238, 228, 0.9) 65%, rgba(246, 238, 228, 0) 100%), url('assets/homepage_hero_new_family.png');
+    }
+    .hero-banner-heading {
+        font-size: 2.6rem;
+    }
+    .hero-banner-desc {
+        font-size: 0.9rem;
+        max-width: 320px;
+    }
 }
-.hero-collage:hover img {
-    transform: rotate(0);
+
+@media (max-width: 768px) {
+    .hero-banner-fullwidth {
+        height: auto;
+        background-image: none; /* Hide background image to stack */
+    }
+    
+    .hero-banner-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-banner-text-side {
+        padding: 40px 20px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .hero-banner-desc {
+        max-width: 100%;
+    }
+    
+    .hero-mobile-image {
+        display: block;
+        width: 100%;
+        height: 220px;
+        background-image: url('assets/homepage_hero_new_family.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .hero-pagination-dots {
+        justify-content: center;
+    }
 }
 
 /* 12. Shop by Category */

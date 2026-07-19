@@ -46,18 +46,18 @@
                     <defs>
                         <!-- Premium Gold Metallic Gradient -->
                         <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#FCE0AD" />
-                            <stop offset="20%" stop-color="#DFAC4D" />
-                            <stop offset="40%" stop-color="#C68B29" />
-                            <stop offset="60%" stop-color="#FDF1D6" />
-                            <stop offset="80%" stop-color="#DFAC4D" />
-                            <stop offset="100%" stop-color="#8E5B10" />
+                            <stop offset="0%" stop-color="#FFF3D6" />
+                            <stop offset="20%" stop-color="#F5D393" />
+                            <stop offset="40%" stop-color="#E5B252" />
+                            <stop offset="60%" stop-color="#FFF7E6" />
+                            <stop offset="80%" stop-color="#F5D393" />
+                            <stop offset="100%" stop-color="#C68C2E" />
                         </linearGradient>
-                        <!-- Dark Gold/Bronze for 3D extrusion sides -->
+                        <!-- Warm Radiant Gold/Bronze for 3D extrusion sides -->
                         <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#5A3E1B" />
-                            <stop offset="50%" stop-color="#402B12" />
-                            <stop offset="100%" stop-color="#2D1D0B" />
+                            <stop offset="0%" stop-color="#9C7338" />
+                            <stop offset="50%" stop-color="#7A5626" />
+                            <stop offset="100%" stop-color="#5B3C14" />
                         </linearGradient>
                         <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
                             <feDropShadow dx="2" dy="3" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.65" />
@@ -129,40 +129,43 @@
 
     <!-- Main Content Container -->
     <main>
-        <!-- 3. Hero Banner Slider Section -->
-        <section class="hero-section homepage-hero">
-            <div class="hero-container">
-                <!-- Hero Left: Text & CTAs -->
-                <div class="hero-text-content">
-                    <div class="subtitle-badge">
-                        <span>WELCOME TO GHOUSIA TRADERS</span>
-                        <span class="badge-decorator"></span>
-                    </div>
-
-                    <h1 class="hero-title">Little Essentials,<br>Big Joy</h1>
-                    
-                    <p class="hero-description">
-                        Premium baby care products and exciting ride-on toys for endless smiles and beautiful memories.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a href="shop.html" class="btn btn-primary">Shop Now <i data-lucide="arrow-right"></i></a>
-                    </div>
-
-                    <!-- Slide indicators (dots) -->
-                    <div class="hero-slider-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+        <!-- 3. Hero Banner Section -->
+        <section class="homepage-hero">
+            <div class="hero-banner-fullwidth">
+                <div class="hero-banner-content-container">
+                    <div class="hero-banner-content">
+                        <!-- Left Side: Text and CTA -->
+                        <div class="hero-banner-text-side">
+                            <div class="hero-badge-decoration">
+                                <span class="hero-badge-line-long"></span>
+                                <span class="hero-badge-text">WELCOME TO GHOUSIA TRADERS</span>
+                            </div>
+                            
+                            <h1 class="hero-banner-heading">
+                                Little Essentials,<br>
+                                <span class="accent-joy">Big Joy</span>
+                            </h1>
+                            
+                            <p class="hero-banner-desc">
+                                Premium baby care products and exciting ride-on toys for endless smiles and beautiful memories.
+                            </p>
+                            
+                            <a href="shop.html" class="btn-hero-cta">
+                                <span>Shop Now</span>
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                            
+                            <!-- Slider Pagination Dots -->
+                            <div class="hero-pagination-dots">
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Hero Right: Combined Group Graphic -->
-                <div class="hero-graphic-container">
-                    <div class="hero-collage">
-                        <img src="assets/happy_family.png" alt="Happy childhood baby and ride-on toys collection">
-                    </div>
-                </div>
+                <!-- Mobile visual side image (Only visible on mobile) -->
+                <div class="hero-mobile-image"></div>
             </div>
         </section>
 
