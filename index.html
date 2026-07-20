@@ -129,38 +129,52 @@
 
     <!-- Main Content Container -->
     <main>
-        <!-- 3. Hero Banner Section -->
+        <!-- 3. Hero Banner Section / Slider -->
         <section class="homepage-hero">
-            <div class="hero-banner-fullwidth">
-                <div class="hero-banner-content-container">
-                    <div class="hero-banner-content">
-                        <!-- Left Side: Text and CTA -->
-                        <div class="hero-banner-text-side">
-                            <div class="hero-badge-decoration">
-                                <span class="hero-badge-line-long"></span>
-                                <span class="hero-badge-text">WELCOME TO GHOUSIA TRADERS</span>
-                            </div>
-                            
-                            <h1 class="hero-banner-heading">
-                                Little Essentials,<br>
-                                <span class="accent-joy">Big Joy</span>
-                            </h1>
-                            
-                            <p class="hero-banner-desc">
-                                Premium baby care products and exciting ride-on toys for endless smiles and beautiful memories.
-                            </p>
-                            
-                            <a href="shop.html" class="btn-hero-cta">
-                                <span>Shop Now</span>
+            <div class="hero-slide hero-slide--baby-care">
+                <!-- Clean High-Res Background Image -->
+                <div class="hero-slide__image">
+                    <img src="assets/images/banners/baby-care-banner.jpg" alt="Ghousia Traders Baby Care Essentials banner" class="hero-slide__bg-img" loading="eager">
+                    <div class="hero-slide__gradient-overlay"></div>
+                </div>
+
+                <!-- HTML/CSS Overlay Content Layer -->
+                <div class="hero-slide__container">
+                    <div class="hero-slide__content">
+                        <!-- Eyebrow Decoration & Text -->
+                        <div class="hero-slide__eyebrow">
+                            <span class="hero-slide__line"></span>
+                            <svg class="hero-slide__leaf-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                            </svg>
+                            <span class="hero-slide__eyebrow-text">GENTLE CARE FOR LITTLE ONES</span>
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="hero-slide__heading">
+                            Baby Care<br>
+                            Essentials
+                        </h1>
+
+                        <!-- Description -->
+                        <p class="hero-slide__desc">
+                            Soft, safe and everyday essentials for your baby’s comfort, care and happy little moments.
+                        </p>
+
+                        <!-- CTA Button Link -->
+                        <div class="hero-slide__actions">
+                            <a href="babycare.html" class="hero-slide__btn">
+                                <span>Explore Baby Care</span>
                                 <i data-lucide="arrow-right"></i>
                             </a>
-                            
-                            <!-- Slider Pagination Dots -->
-                            <div class="hero-pagination-dots">
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
+                        </div>
+
+                        <!-- Real HTML Slider Dots -->
+                        <div class="hero-slide__dots" aria-label="Slider controls">
+                            <button type="button" class="hero-slide__dot active" aria-label="Slide 1"></button>
+                            <button type="button" class="hero-slide__dot" aria-label="Slide 2"></button>
+                            <button type="button" class="hero-slide__dot" aria-label="Slide 3"></button>
                         </div>
                     </div>
                 </div>

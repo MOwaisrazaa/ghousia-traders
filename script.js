@@ -746,5 +746,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // Hero Slider Dots Click Handler
+    const heroDots = document.querySelectorAll('.hero-slide__dot');
+    heroDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+            heroDots.forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+        });
+    });
 });
 
