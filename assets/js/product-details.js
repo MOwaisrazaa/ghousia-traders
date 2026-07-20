@@ -255,4 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (scrollToReviewsLink) scrollToReviewsLink.addEventListener('click', jumpToReviews);
     if (viewAllReviewsBtn) viewAllReviewsBtn.addEventListener('click', jumpToReviews);
+
+    // Initialize Lucide Icons
+    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+    }
 });

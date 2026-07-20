@@ -1,6 +1,53 @@
-/* ==========================================================================
-   Ghousia Traders - Product Detail Page (PDP) Custom Stylesheet
-   ========================================================================== */
+/* Lucide Icons SVG Styling Fix */
+svg.lucide,
+i[data-lucide] {
+    display: inline-block;
+    vertical-align: middle;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+.action-btn svg,
+.action-btn i {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+}
+
+.gallery-arrow svg,
+.gallery-arrow i {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-dark, #3E2A18);
+}
+
+.gallery-arrow:hover svg,
+.gallery-arrow:hover i {
+    stroke: #FFFFFF;
+}
+
+.pdp-zoom-btn svg,
+.pdp-zoom-btn i {
+    width: 18px;
+    height: 18px;
+    stroke: var(--text-dark, #3E2A18);
+}
+
+.pdp-zoom-btn:hover svg,
+.pdp-zoom-btn:hover i {
+    stroke: #FFFFFF;
+}
+
+.pdp-stars svg,
+.pdp-stars i,
+.review-stars svg,
+.review-stars i {
+    width: 16px;
+    height: 16px;
+    fill: #DFAC4D;
+    stroke: #DFAC4D;
+}
 
 /* Page Padding & Spacing */
 .product-detail-page {
