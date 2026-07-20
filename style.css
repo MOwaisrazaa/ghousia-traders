@@ -1427,18 +1427,22 @@ img {
 /* 11. Homepage Hero Banner Redesign */
 .homepage-hero {
     background-color: #F6EEE4;
-    padding: 0; /* Full-width edge-to-edge flush with navbar */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 .hero-banner-fullwidth {
     position: relative;
-    /* background-color: #F6EEE4; */
-    background-image: linear-gradient(to right, #F6EEE4 0%, #F6EEE4 0%, rgba(246, 238, 228, 0.85) 45%, rgba(246, 238, 228, 0) 90%), url('assets/homepage_hero_new_family.png');
-    background-size: cover;
-    background-position: right center;
-    background-repeat: no-repeat;
-    height: 420px; /* Adjusted height for family hero */
     width: 100%;
+    height: 430px; /* Exact 430px desktop height */
+    background-color: #F6EEE4;
+    background-image: url('assets/homepage_hero_wide_bg.png');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    overflow: hidden;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -1452,14 +1456,15 @@ img {
 }
 
 .hero-banner-content {
-    display: grid;
-    grid-template-columns: 42fr 58fr; /* Spacious text area */
+    display: flex;
+    align-items: center;
     height: 100%;
     width: 100%;
 }
 
 .hero-banner-text-side {
-    padding: 40px 0;
+    max-width: 520px;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1470,7 +1475,7 @@ img {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 .hero-badge-line-long {
@@ -1488,8 +1493,8 @@ img {
     top: 50%;
     width: 5px;
     height: 5px;
-    border-top: 1px solid var(--primary);
-    border-right: 1px solid var(--primary);
+    border-top: 1.5px solid var(--primary);
+    border-right: 1.5px solid var(--primary);
     transform: translateY(-50%) rotate(45deg);
 }
 
@@ -1503,14 +1508,15 @@ img {
 
 .hero-banner-heading {
     font-family: var(--font-heading);
-    font-size: 3.2rem; /* Large and elegant Lora heading */
+    font-size: 3.1rem;
     line-height: 1.15;
     color: var(--text-dark);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    font-weight: 700;
 }
 
 .hero-banner-heading .accent-joy {
-    color: var(--primary); /* Warm brown accent */
+    color: var(--primary);
     font-weight: 700;
 }
 
@@ -1518,12 +1524,12 @@ img {
     font-size: 0.95rem;
     color: var(--text-muted);
     line-height: 1.5;
-    margin-bottom: 28px;
-    max-width: 420px;
+    margin-bottom: 24px;
+    max-width: 440px;
 }
 
 .btn-hero-cta {
-    background-color: var(--primary); /* Warm dark brown */
+    background-color: var(--primary);
     color: var(--text-light);
     font-weight: 600;
     font-size: 0.95rem;
@@ -1545,7 +1551,7 @@ img {
 .hero-pagination-dots {
     display: flex;
     gap: 8px;
-    margin-top: 36px;
+    margin-top: 28px;
 }
 
 .hero-pagination-dots .dot {
@@ -1559,63 +1565,119 @@ img {
 }
 
 .hero-pagination-dots .dot.active {
-    background-color: var(--primary); /* Active dot in warm brown */
+    background-color: var(--primary);
     border-color: var(--primary);
 }
 
-/* Mobile visual side image */
-.hero-mobile-image {
-    display: none;
-}
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (1440px, 1366px, 1200px, 992px, 768px, 576px, 430px, 390px, 375px, 320px)
+   ========================================================================== */
 
-/* Responsive adjustments inside media query */
-@media (max-width: 1024px) {
+/* Large Screens & Standard Laptops (1200px - 1440px) */
+@media (max-width: 1365px) {
     .hero-banner-fullwidth {
-        height: 350px;
-        background-image: linear-gradient(to right, #F6EEE4 0%, #F6EEE4 45%, rgba(246, 238, 228, 0.9) 65%, rgba(246, 238, 228, 0) 100%), url('assets/homepage_hero_new_family.png');
+        height: 430px;
+        background-position: right 30% center;
     }
     .hero-banner-heading {
-        font-size: 2.6rem;
+        font-size: 2.85rem;
+    }
+}
+
+/* Medium Desktop / Small Laptop (992px - 1199px) */
+@media (max-width: 1199px) {
+    .hero-banner-fullwidth {
+        height: 410px;
+        background-position: right center;
+    }
+    .hero-banner-text-side {
+        max-width: 460px;
+    }
+    .hero-banner-heading {
+        font-size: 2.5rem;
     }
     .hero-banner-desc {
         font-size: 0.9rem;
-        max-width: 320px;
     }
 }
 
-@media (max-width: 768px) {
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
     .hero-banner-fullwidth {
-        height: auto;
-        background-image: none; /* Hide background image to stack */
+        height: 375px;
+        background-position: right center;
     }
-    
-    .hero-banner-content {
-        grid-template-columns: 1fr;
-    }
-    
     .hero-banner-text-side {
-        padding: 40px 20px;
-        align-items: center;
-        text-align: center;
+        max-width: 410px;
     }
-    
+    .hero-banner-heading {
+        font-size: 2.2rem;
+    }
     .hero-banner-desc {
+        font-size: 0.88rem;
+        margin-bottom: 20px;
+    }
+    .hero-pagination-dots {
+        margin-top: 20px;
+    }
+}
+
+/* Small Tablet & Mobile Landscape (576px - 767px) */
+@media (max-width: 767px) {
+    .hero-banner-fullwidth {
+        height: 340px;
+        background-image: linear-gradient(to right, rgba(246, 238, 228, 0.96) 0%, rgba(246, 238, 228, 0.90) 50%, rgba(246, 238, 228, 0.35) 100%), url('assets/homepage_hero_wide_bg.png');
+        background-position: right center;
+    }
+    .hero-banner-text-side {
         max-width: 100%;
     }
-    
-    .hero-mobile-image {
-        display: block;
-        width: 100%;
-        height: 220px;
-        background-image: url('assets/homepage_hero_new_family.png');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        border-top: 1px solid var(--border-color);
+    .hero-banner-heading {
+        font-size: 2.0rem;
     }
-    
+}
+
+/* Mobile Devices (430px, 390px, 375px, 320px) */
+@media (max-width: 575px) {
+    .hero-banner-fullwidth {
+        height: 310px;
+        background-image: linear-gradient(to right, rgba(246, 238, 228, 0.96) 0%, rgba(246, 238, 228, 0.88) 65%, rgba(246, 238, 228, 0.45) 100%), url('assets/homepage_hero_wide_bg.png');
+        background-position: right center;
+    }
+    .hero-banner-content-container {
+        padding: 0 16px;
+    }
+    .hero-badge-text {
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+    }
+    .hero-badge-line-long {
+        width: 30px;
+    }
+    .hero-banner-heading {
+        font-size: 1.75rem;
+        margin-bottom: 10px;
+    }
+    .hero-banner-desc {
+        font-size: 0.82rem;
+        margin-bottom: 16px;
+        line-height: 1.4;
+    }
+    .btn-hero-cta {
+        padding: 10px 22px;
+        font-size: 0.88rem;
+    }
     .hero-pagination-dots {
-        justify-content: center;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 390px) {
+    .hero-banner-fullwidth {
+        height: 295px;
+    }
+    .hero-banner-heading {
+        font-size: 1.55rem;
     }
 }
 
