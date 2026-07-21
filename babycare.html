@@ -29,7 +29,7 @@
             <button class="action-btn mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
                 <i data-lucide="menu"></i>
             </button>
-                                                            <a href="index.html" class="logo brand-logo-link">
+            <a href="index.html" class="logo brand-logo-link">
                 <svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <!-- Premium Gold Metallic Gradient -->
@@ -52,7 +52,7 @@
                         </filter>
                     </defs>
                     
-                    <!-- Calligraphic Cursive 3D Text "Ghousia Traders" (Larger, Centered, No Underlines) -->
+                    <!-- Calligraphic Cursive 3D Text "Ghousia Traders" -->
                     <g filter="url(#shadow)">
                         <!-- 3D Extrusion Layers (Dark Bronze) -->
                         <text x="160" y="54" font-family="'Great Vibes', 'Playball', 'Pinyon Script', cursive" font-size="44" font-weight="bold" fill="url(#bronzeGrad)" text-anchor="middle">Ghousia Traders</text>
@@ -74,20 +74,29 @@
                 <a href="contact.html" class="nav-link">Contact Us</a>
             </nav>
             <div class="header-actions">
-                <button class="action-btn" aria-label="Search" id="searchBtn"><i data-lucide="search"></i></button>
-                <button class="action-btn" aria-label="Account"><i data-lucide="user"></i></button>
-                <button class="action-btn badge-btn" aria-label="Wishlist" id="wishlistBtn"><i data-lucide="heart"></i><span class="badge" id="wishlistCount">8</span></button>
-                <button class="action-btn badge-btn" aria-label="Cart" id="cartBtn"><i data-lucide="shopping-cart"></i><span class="badge" id="cartCount">2</span></button>
+                <a href="signin.html" class="action-btn" aria-label="Account"><i data-lucide="user"></i></a>
+                <a href="wishlist.html" class="action-btn badge-btn" aria-label="Wishlist" id="wishlistBtn"><i data-lucide="heart"></i><span class="badge" id="wishlistCount">8</span></a>
+                <a href="cart.html" class="action-btn badge-btn" aria-label="Cart" id="cartBtn"><i data-lucide="shopping-cart"></i><span class="badge" id="cartCount">2</span></a>
             </div>
         </div>
 
-        <!-- Mobile Search Bar (Only visible on mobile) -->
-        <div class="mobile-search-bar-container">
-            <div class="mobile-search-form">
-                <input type="text" placeholder="Search baby care products, ride-on cars..." class="mobile-search-input" id="mobileSearchInput">
-                <button type="button" class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search">
-                    <i data-lucide="search"></i>
-                </button>
+        <!-- Header Secondary Row: Search Bar & Track Order -->
+        <div class="header-sub-bar">
+            <div class="header-container header-sub-container">
+                <!-- Search Input Form -->
+                <form class="header-search-form" action="shop.html" method="GET">
+                    <div class="header-search-input-wrapper">
+                        <i data-lucide="search" class="search-input-icon"></i>
+                        <input type="text" name="q" placeholder="Search baby care products, ride-on bikes, toy cars..." class="header-search-input" id="headerSearchInput">
+                        <button type="submit" class="header-search-submit-btn">Search</button>
+                    </div>
+                </form>
+
+                <!-- Track Order Button -->
+                <a href="track-order.html" class="track-order-link">
+                    <i data-lucide="truck"></i>
+                    <span>Track Order</span>
+                </a>
             </div>
         </div>
     </header>
