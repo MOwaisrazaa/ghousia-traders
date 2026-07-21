@@ -1871,12 +1871,232 @@ img {
     line-height: 1.3;
 }
 
-/* 14. Best Sellers & Product Cards */
+/* 14. Best Sellers & Product Cards & Category Showcase Gradients */
 .best-sellers-section {
     background-color: var(--bg-light);
 }
 .category-showcase-section {
     border-top: 1px solid var(--border-color);
+}
+
+/* Section Header Styling */
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* 1. Best Sellers Section Theme (Warm Gold & Peach Wave) */
+#shop.best-sellers-section {
+    position: relative;
+    background: 
+        radial-gradient(ellipse at 0% 40%, rgba(245, 211, 147, 0.5) 0%, transparent 55%),
+        radial-gradient(ellipse at 100% 70%, rgba(229, 178, 82, 0.4) 0%, transparent 60%),
+        linear-gradient(135deg, #FFFDF8 0%, #FAF0E4 100%);
+    overflow: hidden;
+}
+#shop.best-sellers-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 350px;
+    height: 350px;
+    background: rgba(229, 178, 82, 0.15);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    filter: blur(40px);
+    pointer-events: none;
+}
+#shop .section-badge-pill {
+    background-color: #FFF3D6;
+    color: #8C6227;
+    border: 1px solid #F5D393;
+}
+
+/* 2. Baby Care Items Section Theme (Soft Nursery Pink & Peach Wave) */
+#baby-care-items.best-sellers-section {
+    position: relative;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 209, 217, 0.6) 0%, transparent 55%),
+        radial-gradient(circle at 90% 80%, rgba(254, 226, 208, 0.65) 0%, transparent 60%),
+        linear-gradient(135deg, #FFF7F6 0%, #FAECE9 100%);
+    overflow: hidden;
+}
+#baby-care-items.best-sellers-section::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: 5%;
+    width: 400px;
+    height: 400px;
+    background: rgba(245, 175, 185, 0.18);
+    border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+    filter: blur(45px);
+    pointer-events: none;
+}
+#baby-care-items .section-badge-pill {
+    background-color: #FDE8EC;
+    color: #C04A5E;
+    border: 1px solid #F7C5CE;
+}
+
+/* 3. B/O Bikes Section Theme (Fresh Emerald Mint & Sage Wave) */
+#bo-bikes.best-sellers-section {
+    position: relative;
+    background: 
+        radial-gradient(circle at 85% 15%, rgba(187, 225, 206, 0.6) 0%, transparent 55%),
+        radial-gradient(circle at 15% 85%, rgba(162, 210, 185, 0.55) 0%, transparent 60%),
+        linear-gradient(135deg, #F4FAF5 0%, #E3EFE5 100%);
+    overflow: hidden;
+}
+#bo-bikes.best-sellers-section::before {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: 10%;
+    width: 420px;
+    height: 420px;
+    background: rgba(72, 160, 110, 0.15);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    filter: blur(55px);
+    pointer-events: none;
+}
+#bo-bikes .section-badge-pill {
+    background-color: #E2F3E7;
+    color: #1F6941;
+    border: 1px solid #B8E4C6;
+}
+
+/* 4. B/O Cars Section Theme (Royal Sapphire Ice Blue Wave) */
+#bo-cars.best-sellers-section {
+    position: relative;
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(193, 218, 245, 0.65) 0%, transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(175, 205, 237, 0.6) 0%, transparent 60%),
+        linear-gradient(135deg, #F3F7FB 0%, #E3EDF7 100%);
+    overflow: hidden;
+}
+#bo-cars.best-sellers-section::before {
+    content: '';
+    position: absolute;
+    top: -70px;
+    left: 20%;
+    width: 380px;
+    height: 380px;
+    background: rgba(59, 130, 246, 0.15);
+    border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%;
+    filter: blur(50px);
+    pointer-events: none;
+}
+#bo-cars .section-badge-pill {
+    background-color: #E0ECFB;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
+}
+
+/* Product Card Action Bar (Quick View, Wishlist, Cart) */
+.product-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.card-action-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(194, 159, 116, 0.3);
+    background-color: #FFFFFF;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+}
+.card-action-btn i {
+    width: 15px;
+    height: 15px;
+}
+.card-action-btn:hover {
+    background-color: var(--secondary);
+    color: #FFFFFF;
+    border-color: var(--secondary);
+    transform: translateY(-2px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(194, 159, 116, 0.35);
+}
+
+/* Theme specific action buttons hover styles */
+#baby-care-items .card-action-btn:hover {
+    background-color: #C04A5E;
+    border-color: #C04A5E;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(192, 74, 94, 0.35);
+}
+#bo-bikes .card-action-btn:hover {
+    background-color: #1F6941;
+    border-color: #1F6941;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(31, 105, 65, 0.35);
+}
+#bo-cars .card-action-btn:hover {
+    background-color: #1D4ED8;
+    border-color: #1D4ED8;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+}
+
+/* Centered Bottom Pill CTA Button */
+.section-bottom-cta {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+}
+.btn-pill-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 36px;
+    background-color: #FFFFFF;
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    transition: all var(--transition-normal);
+    text-decoration: none;
+}
+.btn-pill-cta:hover {
+    background-color: var(--primary);
+    color: #FFFFFF;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(92, 62, 33, 0.25);
+}
+.btn-pill-cta i {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-fast);
+}
+.btn-pill-cta:hover i {
+    transform: translateX(5px);
 }
 .best-sellers-header {
     display: flex;

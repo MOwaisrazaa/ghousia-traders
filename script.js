@@ -278,6 +278,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Card wishlist button click listener
+    const cardWishlistBtns = document.querySelectorAll('.action-wishlist');
+    cardWishlistBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            btn.classList.toggle('active');
+            const icon = btn.querySelector('i');
+            if (wishlistCount) {
+                let currentVal = parseInt(wishlistCount.textContent) || 0;
+                if (btn.classList.contains('active')) {
+                    currentVal += 1;
+                    btn.style.backgroundColor = '#E27B8A';
+                    btn.style.color = '#FFFFFF';
+                    btn.style.borderColor = '#E27B8A';
+                } else {
+                    currentVal = Math.max(0, currentVal - 1);
+                    btn.style.backgroundColor = '';
+                    btn.style.color = '';
+                    btn.style.borderColor = '';
+                }
+                wishlistCount.textContent = currentVal;
+            }
+        });
+    });
+
     // 6. Coupon Code Clipboard Copy
     const copyCodeBtn = document.getElementById('copyCodeBtn');
     const promoCode = document.getElementById('promoCode');

@@ -287,9 +287,9 @@
         <!-- 6. Best Sellers Section -->
         <section class="best-sellers-section" id="shop">
             <div class="section-container">
-                <div class="best-sellers-header">
+                <div class="section-header-centered">
+                    <span class="section-badge-pill"><i data-lucide="crown" style="width: 13px; height: 13px;"></i> Top Choice</span>
                     <h2 class="section-title-serif">Best Sellers</h2>
-                    <a href="shop.html" class="view-all-link">View All Products <i data-lucide="arrow-right"></i></a>
                 </div>
 
                 <div class="products-grid">
@@ -303,9 +303,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=baby-lotion" style="color: inherit; text-decoration: none;">Johnson's Baby Lotion 500ml</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 1,250</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Johnson's Baby Lotion 500ml">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Johnson's Baby Lotion 500ml" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -320,9 +321,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=baby-wipes" style="color: inherit; text-decoration: none;">Baby Wipes 80 Pcs</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 450</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Baby Wipes 80 Pcs">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Baby Wipes 80 Pcs" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -336,9 +338,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=sippy-cup" style="color: inherit; text-decoration: none;">Premium Sippy Cup 260ml</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 750</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Premium Sippy Cup 260ml">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Premium Sippy Cup 260ml" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -352,9 +355,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=sports-bike" style="color: inherit; text-decoration: none;">Sports B/O Bike (Rechargeable)</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 24,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Sports B/O Bike (Rechargeable)">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Sports B/O Bike (Rechargeable)" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -368,12 +372,18 @@
                             <h3 class="product-name"><a href="product-details.html?id=jeep-wrangler" style="color: inherit; text-decoration: none;">Jeep B/O Car (4x4)</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 34,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Jeep B/O Car (4x4)">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Jeep B/O Car (4x4)" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Centered Bottom Pill Button -->
+                <div class="section-bottom-cta">
+                    <a href="shop.html" class="btn-pill-cta">View All Bestsellers <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -381,9 +391,9 @@
         <!-- 7. Baby Care Items Section -->
         <section class="best-sellers-section category-showcase-section" id="baby-care-items">
             <div class="section-container">
-                <div class="best-sellers-header">
+                <div class="section-header-centered">
+                    <span class="section-badge-pill"><i data-lucide="baby" style="width: 13px; height: 13px;"></i> Gentle Care</span>
                     <h2 class="section-title-serif">Baby Care Items</h2>
-                    <a href="babycare.html" class="view-all-link">View All Baby Care <i data-lucide="arrow-right"></i></a>
                 </div>
 
                 <div class="products-grid">
@@ -397,9 +407,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=baby-lotion" style="color: inherit; text-decoration: none;">Johnson's Baby Lotion 500ml</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 1,250</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Johnson's Baby Lotion 500ml">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Johnson's Baby Lotion 500ml" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -414,9 +425,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=baby-wipes" style="color: inherit; text-decoration: none;">Baby Wipes 80 Pcs</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 450</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Baby Wipes 80 Pcs">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Baby Wipes 80 Pcs" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -431,9 +443,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=baby-shampoo" style="color: inherit; text-decoration: none;">Gentle Baby Shampoo 500ml</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 1,150</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Gentle Baby Shampoo 500ml">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Gentle Baby Shampoo 500ml" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -447,9 +460,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=sippy-cup" style="color: inherit; text-decoration: none;">Premium Sippy Cup 260ml</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 750</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Premium Sippy Cup 260ml">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Premium Sippy Cup 260ml" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -463,12 +477,18 @@
                             <h3 class="product-name"><a href="product-details.html?id=feeding-bottle-set" style="color: inherit; text-decoration: none;">Feeding Bottle Set 3 Pcs</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 1,650</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Feeding Bottle Set 3 Pcs">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Feeding Bottle Set 3 Pcs" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Centered Bottom Pill Button -->
+                <div class="section-bottom-cta">
+                    <a href="babycare.html" class="btn-pill-cta">View All Baby Care <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -476,9 +496,9 @@
         <!-- 8. B/O Bikes Section -->
         <section class="best-sellers-section category-showcase-section" id="bo-bikes">
             <div class="section-container">
-                <div class="best-sellers-header">
+                <div class="section-header-centered">
+                    <span class="section-badge-pill"><i data-lucide="bike" style="width: 13px; height: 13px;"></i> Sport & Adventure</span>
                     <h2 class="section-title-serif">B/O Bikes</h2>
-                    <a href="bikes.html" class="view-all-link">View All B/O Bikes <i data-lucide="arrow-right"></i></a>
                 </div>
 
                 <div class="products-grid">
@@ -492,9 +512,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=sports-bike" style="color: inherit; text-decoration: none;">Sports B/O Bike (Rechargeable)</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 24,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Sports B/O Bike (Rechargeable)">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Sports B/O Bike (Rechargeable)" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -509,9 +530,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=sports-bike" style="color: inherit; text-decoration: none;">Ducati Style Heavy B/O Bike</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 34,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Ducati Style Heavy B/O Bike">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Ducati Style Heavy B/O Bike" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -525,9 +547,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=sports-bike" style="color: inherit; text-decoration: none;">BMW S1000RR B/O Bike</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 39,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="BMW S1000RR B/O Bike">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="BMW S1000RR B/O Bike" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -541,9 +564,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=adventure-bike" style="color: inherit; text-decoration: none;">Adventure Trail B/O Bike</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 32,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Adventure Trail B/O Bike">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Adventure Trail B/O Bike" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -557,12 +581,18 @@
                             <h3 class="product-name"><a href="product-details.html?id=sports-bike" style="color: inherit; text-decoration: none;">Yamaha R1M Racing Bike</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 36,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Yamaha R1M Racing Bike">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Yamaha R1M Racing Bike" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Centered Bottom Pill Button -->
+                <div class="section-bottom-cta">
+                    <a href="bikes.html" class="btn-pill-cta">View All B/O Bikes <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -570,9 +600,9 @@
         <!-- 9. B/O Cars Section -->
         <section class="best-sellers-section category-showcase-section" id="bo-cars">
             <div class="section-container">
-                <div class="best-sellers-header">
+                <div class="section-header-centered">
+                    <span class="section-badge-pill"><i data-lucide="car" style="width: 13px; height: 13px;"></i> Luxury Ride-Ons</span>
                     <h2 class="section-title-serif">B/O Cars</h2>
-                    <a href="cars.html" class="view-all-link">View All B/O Cars <i data-lucide="arrow-right"></i></a>
                 </div>
 
                 <div class="products-grid">
@@ -586,9 +616,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=jeep-wrangler" style="color: inherit; text-decoration: none;">Jeep B/O Car (4x4)</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 34,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Jeep B/O Car (4x4)">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Jeep B/O Car (4x4)" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -603,9 +634,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=mercedes-amg" style="color: inherit; text-decoration: none;">Mercedes B/O Car (AMG)</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 29,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Mercedes B/O Car (AMG)">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Mercedes B/O Car (AMG)" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -619,9 +651,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=land-cruiser" style="color: inherit; text-decoration: none;">Toyota Land Cruiser B/O SUV</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 32,999</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Toyota Land Cruiser B/O SUV">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Toyota Land Cruiser B/O SUV" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -635,9 +668,10 @@
                             <h3 class="product-name"><a href="product-details.html?id=range-rover" style="color: inherit; text-decoration: none;">Range Rover Vogue B/O SUV</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 37,500</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Range Rover Vogue B/O SUV">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Range Rover Vogue B/O SUV" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -651,12 +685,18 @@
                             <h3 class="product-name"><a href="product-details.html?id=mercedes-amg" style="color: inherit; text-decoration: none;">Audi R8 Spyder Electric Car</a></h3>
                             <div class="product-footer">
                                 <span class="product-price">PKR 31,000</span>
-                                <button class="add-to-cart-btn" aria-label="Add to Cart" data-name="Audi R8 Spyder Electric Car">
-                                    <i data-lucide="shopping-cart"></i>
-                                </button>
+                                <div class="product-card-actions">
+                                    <button class="card-action-btn action-wishlist" aria-label="Add to Wishlist" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+                                    <button class="add-to-cart-btn card-action-btn action-cart" aria-label="Add to Cart" data-name="Audi R8 Spyder Electric Car" title="Add to Cart"><i data-lucide="shopping-cart"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Centered Bottom Pill Button -->
+                <div class="section-bottom-cta">
+                    <a href="cars.html" class="btn-pill-cta">View All B/O Cars <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
