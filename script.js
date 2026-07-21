@@ -4,14 +4,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Scroll listener for sticky header transition
+    // Scroll listener for sticky header transition & sub-bar auto-hide
     const mainHeader = document.querySelector('.main-header');
+    const headerSubBar = document.querySelector('.header-sub-bar');
+
     if (mainHeader) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) {
+            if (window.scrollY > 40) {
                 mainHeader.classList.add('scrolled');
+                if (headerSubBar) headerSubBar.classList.add('hide-sub-bar');
             } else {
                 mainHeader.classList.remove('scrolled');
+                if (headerSubBar) headerSubBar.classList.remove('hide-sub-bar');
             }
         });
     }

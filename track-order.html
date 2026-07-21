@@ -213,6 +213,23 @@
 
     <!-- Main Header -->
     <header class="main-header">
+        <div class="header-sub-bar">
+            <div class="header-container header-sub-container">
+                <form class="header-search-form" action="shop.html" method="GET">
+                    <div class="header-search-input-wrapper">
+                        <i data-lucide="search" class="search-input-icon"></i>
+                        <input type="text" name="q" placeholder="Search baby care products, ride-on bikes, toy cars..." class="header-search-input" id="headerSearchInput">
+                        <button type="submit" class="header-search-submit-btn">Search</button>
+                    </div>
+                </form>
+
+                <a href="track-order.html" class="track-order-link" style="background-color: var(--secondary); color: var(--primary);">
+                    <i data-lucide="truck"></i>
+                    <span>Track Order</span>
+                </a>
+            </div>
+        </div>
+
         <div class="header-container">
             <button class="action-btn mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
                 <i data-lucide="menu"></i>
@@ -267,23 +284,6 @@
                 <a href="cart.html" class="action-btn badge-btn" aria-label="Cart" id="cartBtn">
                     <i data-lucide="shopping-cart"></i>
                     <span class="badge" id="cartCount">2</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="header-sub-bar">
-            <div class="header-container header-sub-container">
-                <form class="header-search-form" action="shop.html" method="GET">
-                    <div class="header-search-input-wrapper">
-                        <i data-lucide="search" class="search-input-icon"></i>
-                        <input type="text" name="q" placeholder="Search baby care products, ride-on bikes, toy cars..." class="header-search-input" id="headerSearchInput">
-                        <button type="submit" class="header-search-submit-btn">Search</button>
-                    </div>
-                </form>
-
-                <a href="track-order.html" class="track-order-link" style="background-color: var(--secondary); color: var(--primary);">
-                    <i data-lucide="truck"></i>
-                    <span>Track Order</span>
                 </a>
             </div>
         </div>

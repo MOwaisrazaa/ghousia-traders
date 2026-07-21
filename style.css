@@ -219,7 +219,7 @@ img {
 .header-container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 16px 16px;
+    padding: 4px 16px 10px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -365,47 +365,91 @@ img {
     display: none;
 }
 
-/* Header Sub Bar (Search Line + Track Order) */
+/* Header Sub Bar (Search Line + Track Order) - Top Row, Animated & Auto-Hiding */
 .header-sub-bar {
-    background-color: rgba(0, 0, 0, 0.18);
-    border-top: 1px solid rgba(245, 211, 147, 0.15);
-    padding: 10px 0;
+    background: transparent;
+    border-top: none;
+    padding: 8px 0 2px 0;
+    position: relative;
+    z-index: 10;
+    max-height: 70px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease-in-out,
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.35s ease-in-out,
+                margin 0.35s ease-in-out;
+    overflow: hidden;
+}
+
+/* Hide on Scroll Effect */
+.main-header.scrolled .header-sub-bar,
+.header-sub-bar.hide-sub-bar {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+    transform: translateY(-15px) !important;
+    pointer-events: none !important;
 }
 
 .header-sub-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    justify-content: center;
+    position: relative;
+    width: 100%;
 }
 
 .header-search-form {
-    flex: 1;
-    max-width: 680px;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
 }
 
+/* Sleeker, Compact Floating Search Bar with Glowing Pulse Animation */
 .header-search-input-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    background-color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 50px;
-    padding: 4px 4px 4px 18px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(245, 211, 147, 0.4);
+    padding: 2px 3px 2px 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    border: 1.5px solid rgba(245, 211, 147, 0.6);
     transition: all var(--transition-normal);
+    animation: searchGlowPulse 4s infinite ease-in-out;
+}
+
+@keyframes searchGlowPulse {
+    0% {
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(245, 211, 147, 0.2);
+        border-color: rgba(245, 211, 147, 0.5);
+    }
+    50% {
+        box-shadow: 0 6px 24px rgba(198, 140, 46, 0.28), 0 0 12px rgba(245, 211, 147, 0.45);
+        border-color: rgba(245, 211, 147, 0.9);
+    }
+    100% {
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(245, 211, 147, 0.2);
+        border-color: rgba(245, 211, 147, 0.5);
+    }
 }
 
 .header-search-input-wrapper:focus-within {
     border-color: var(--secondary);
-    box-shadow: 0 0 12px rgba(245, 211, 147, 0.35);
+    box-shadow: 0 6px 25px rgba(245, 211, 147, 0.5);
+    animation: none;
 }
 
 .search-input-icon {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     color: var(--text-muted);
-    margin-right: 10px;
+    margin-right: 8px;
     flex-shrink: 0;
 }
 
@@ -413,15 +457,15 @@ img {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 0.92rem;
+    font-size: 0.82rem;
     color: var(--text-dark);
     background: transparent;
-    padding: 6px 0;
+    padding: 3px 0;
 }
 
 .header-search-input::placeholder {
-    color: #8C8C8C;
-    font-size: 0.88rem;
+    color: #7A7A7A;
+    font-size: 0.8rem;
 }
 
 .header-search-submit-btn {
@@ -429,8 +473,8 @@ img {
     color: #3D2714;
     border: none;
     font-weight: 700;
-    font-size: 0.88rem;
-    padding: 8px 22px;
+    font-size: 0.78rem;
+    padding: 5px 16px;
     border-radius: 40px;
     cursor: pointer;
     transition: all var(--transition-normal);
@@ -443,38 +487,64 @@ img {
     box-shadow: 0 4px 12px rgba(245, 211, 147, 0.45);
 }
 
+/* Floating Track Order Button with Subtle Pulse Animation */
 .track-order-link {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
-    background: rgba(245, 211, 147, 0.12);
-    border: 1px solid rgba(245, 211, 147, 0.35);
+    gap: 6px;
+    padding: 5px 15px;
+    background: rgba(61, 39, 20, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(245, 211, 147, 0.5);
     color: #F5D393;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-decoration: none;
     transition: all var(--transition-normal);
     white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: trackPulse 4s infinite ease-in-out 1s;
+}
+
+@keyframes trackPulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(245, 211, 147, 0.35);
+        border-color: rgba(245, 211, 147, 0.85);
+    }
 }
 
 .track-order-link i {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     transition: transform var(--transition-fast);
+    animation: truckBounce 3s infinite ease-in-out;
+}
+
+@keyframes truckBounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
 }
 
 .track-order-link:hover {
     background-color: var(--secondary);
     color: var(--primary);
     border-color: var(--secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(245, 211, 147, 0.35);
+    transform: translateY(calc(-50% - 2px));
+    box-shadow: 0 6px 18px rgba(245, 211, 147, 0.45);
 }
 
 .track-order-link:hover i {
-    transform: translateX(3px);
+    animation: none;
+    transform: translateX(4px);
 }
 
 /* Search Overlay */

@@ -33,6 +33,27 @@
 
     <!-- Main Header -->
     <header class="main-header">
+        <!-- Line 1 (Top Line): Compact Search Bar (Centered) + Track Order (Right) -->
+        <div class="header-sub-bar">
+            <div class="header-container header-sub-container">
+                <!-- Search Input Form -->
+                <form class="header-search-form" action="shop.html" method="GET">
+                    <div class="header-search-input-wrapper">
+                        <i data-lucide="search" class="search-input-icon"></i>
+                        <input type="text" name="q" placeholder="Search baby care products, ride-on bikes, toy cars..." class="header-search-input" id="headerSearchInput">
+                        <button type="submit" class="header-search-submit-btn">Search</button>
+                    </div>
+                </form>
+
+                <!-- Track Order Button -->
+                <a href="track-order.html" class="track-order-link">
+                    <i data-lucide="truck"></i>
+                    <span>Track Order</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Line 2 (Bottom Line): Main Navbar Container (Logo + Nav Menu + User Icons) -->
         <div class="header-container">
             <!-- Mobile Menu Toggle (Left) -->
             <button class="action-btn mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
@@ -90,26 +111,6 @@
                 </a>
                 <a href="cart.html" class="action-btn badge-btn" aria-label="Cart" id="cartBtn">
                     <i data-lucide="shopping-cart"></i><span class="badge" id="cartCount">2</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Header Secondary Row: Search Bar & Track Order -->
-        <div class="header-sub-bar">
-            <div class="header-container header-sub-container">
-                <!-- Search Input Form -->
-                <form class="header-search-form" action="shop.html" method="GET">
-                    <div class="header-search-input-wrapper">
-                        <i data-lucide="search" class="search-input-icon"></i>
-                        <input type="text" name="q" placeholder="Search baby care products, ride-on bikes, toy cars..." class="header-search-input" id="headerSearchInput">
-                        <button type="submit" class="header-search-submit-btn">Search</button>
-                    </div>
-                </form>
-
-                <!-- Track Order Button -->
-                <a href="track-order.html" class="track-order-link">
-                    <i data-lucide="truck"></i>
-                    <span>Track Order</span>
                 </a>
             </div>
         </div>
