@@ -1955,13 +1955,13 @@ img {
     border: 1px solid #F7C5CE;
 }
 
-/* 3. B/O Bikes Section Theme (Fresh Emerald Mint & Sage Wave) */
+/* 3. B/O Bikes Section Theme (Warm Champagne & Gold Ivory Wave) */
 #bo-bikes.best-sellers-section {
     position: relative;
     background: 
-        radial-gradient(circle at 85% 15%, rgba(187, 225, 206, 0.6) 0%, transparent 55%),
-        radial-gradient(circle at 15% 85%, rgba(162, 210, 185, 0.55) 0%, transparent 60%),
-        linear-gradient(135deg, #F4FAF5 0%, #E3EFE5 100%);
+        radial-gradient(ellipse at 85% 15%, rgba(243, 218, 178, 0.55) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 85%, rgba(234, 203, 150, 0.5) 0%, transparent 60%),
+        linear-gradient(135deg, #FFFDF8 0%, #FAF3E6 100%);
     overflow: hidden;
 }
 #bo-bikes.best-sellers-section::before {
@@ -1971,24 +1971,24 @@ img {
     left: 10%;
     width: 420px;
     height: 420px;
-    background: rgba(72, 160, 110, 0.15);
+    background: rgba(198, 140, 46, 0.14);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     filter: blur(55px);
     pointer-events: none;
 }
 #bo-bikes .section-badge-pill {
-    background-color: #E2F3E7;
-    color: #1F6941;
-    border: 1px solid #B8E4C6;
+    background-color: #F8EEDC;
+    color: #7A521E;
+    border: 1px solid #E9D5B4;
 }
 
-/* 4. B/O Cars Section Theme (Royal Sapphire Ice Blue Wave) */
+/* 4. B/O Cars Section Theme (Warm Cashmere & Rose Sand Wave) */
 #bo-cars.best-sellers-section {
     position: relative;
     background: 
-        radial-gradient(circle at 15% 20%, rgba(193, 218, 245, 0.65) 0%, transparent 55%),
-        radial-gradient(circle at 85% 80%, rgba(175, 205, 237, 0.6) 0%, transparent 60%),
-        linear-gradient(135deg, #F3F7FB 0%, #E3EDF7 100%);
+        radial-gradient(ellipse at 15% 20%, rgba(242, 220, 205, 0.6) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 80%, rgba(236, 208, 189, 0.55) 0%, transparent 60%),
+        linear-gradient(135deg, #FFFAF7 0%, #F5EAE1 100%);
     overflow: hidden;
 }
 #bo-cars.best-sellers-section::before {
@@ -1998,15 +1998,15 @@ img {
     left: 20%;
     width: 380px;
     height: 380px;
-    background: rgba(59, 130, 246, 0.15);
+    background: rgba(168, 92, 58, 0.14);
     border-radius: 60% 40% 50% 50% / 40% 60% 40% 60%;
     filter: blur(50px);
     pointer-events: none;
 }
 #bo-cars .section-badge-pill {
-    background-color: #E0ECFB;
-    color: #1D4ED8;
-    border: 1px solid #BFDBFE;
+    background-color: #F7ECE4;
+    color: #8C4E38;
+    border: 1px solid #E8CEBF;
 }
 
 /* Product Card Action Bar (Quick View, Wishlist, Cart) */
@@ -2050,16 +2050,16 @@ img {
     box-shadow: 0 4px 12px rgba(192, 74, 94, 0.35);
 }
 #bo-bikes .card-action-btn:hover {
-    background-color: #1F6941;
-    border-color: #1F6941;
+    background-color: #8C6227;
+    border-color: #8C6227;
     color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(31, 105, 65, 0.35);
+    box-shadow: 0 4px 12px rgba(140, 98, 39, 0.35);
 }
 #bo-cars .card-action-btn:hover {
-    background-color: #1D4ED8;
-    border-color: #1D4ED8;
+    background-color: #8C4E38;
+    border-color: #8C4E38;
     color: #FFFFFF;
-    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+    box-shadow: 0 4px 12px rgba(140, 78, 56, 0.35);
 }
 
 /* Centered Bottom Pill CTA Button */
