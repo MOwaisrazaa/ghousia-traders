@@ -229,17 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCount = document.getElementById('cartCount');
     const wishlistCount = document.getElementById('wishlistCount');
 
-    // Setup Category Shop Now buttons as simple page anchor scrolls
-    const categoryButtons = document.querySelectorAll('.cat-btn');
-    categoryButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const shopSection = document.getElementById('shop');
-            if (shopSection) {
-                shopSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
+    // Category card buttons navigate to their target pages natively
 
     // Handle Best Seller Cart additions
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
