@@ -1,25 +1,282 @@
 /* ==========================================================================
-   Ghousia Traders - Product Detail Page (PDP) Interactions
+   Ghousia Traders - Dynamic Product Detail Page (PDP) Interactions & Loader
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Image Gallery Thumbnails & Arrows Logic
-    const galleryData = [
-        { src: 'assets/mercedes_amg_front.png', alt: 'Mercedes B/O Car (AMG) Front View' },
-        { src: 'assets/mercedes_amg_side.png', alt: 'Mercedes B/O Car (AMG) Side View' },
-        { src: 'assets/mercedes_amg_dashboard.png', alt: 'Mercedes B/O Car (AMG) Interior Dashboard' },
-        { src: 'assets/mercedes_amg_wheel.png', alt: 'Mercedes B/O Car (AMG) Alloy Wheel Detail' }
-    ];
+    // 1. Get Product ID from URL parameters (e.g. product-details.html?id=jeep-wrangler)
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id') || 'mercedes-amg';
+    const product = typeof getProductById === 'function' ? getProductById(productId) : null;
 
+    if (product) {
+        renderProductData(product);
+    }
+
+    function renderProductData(p) {
+        // Update Document Title
+        document.title = `${p.name} | Ghousia Traders`;
+
+        // Update Breadcrumb
+        const breadcrumbCat = document.querySelector('.pdp-breadcrumb-list li:nth-child(5) a');
+        if (breadcrumbCat) {
+            breadcrumbCat.textContent = p.category;
+            breadcrumbCat.href = p.categoryUrl || 'shop.html';
+        }
+        const breadcrumbCurrent = document.querySelector('.pdp-breadcrumb-list .current');
+        if (breadcrumbCurrent) {
+            breadcrumbCurrent.textContent = p.name;
+        }
+
+        // Update Badge
+        const badgeElem = document.querySelector('.pdp-badge');
+        if (badgeElem) {
+            if (p.badge) {
+                badgeElem.textContent = p.badge;
+                badgeElem.style.display = 'inline-block';
+            } else {
+                badgeElem.style.display = 'none';
+            }
+        }
+
+        // Update Gallery Images
+        galleryData = (p.images && p.images.length > 0) ? p.images.map((imgSrc, idx) => ({
+            src: imgSrc,
+            alt: `${p.name} - View ${idx + 1}`
+        })) : [
+            { src: 'assets/ride_on_toys.png', alt: p.name }
+        ];
+
+        // Reset main image & thumbnails
+        currentImgIndex = 0;
+        const mainImg = document.getElementById('pdpMainImage');
+        if (mainImg && galleryData.length > 0) {
+            mainImg.src = galleryData[0].src;
+            mainImg.alt = galleryData[0].alt;
+        }
+
+        const thumbGrid = document.querySelector('.pdp-thumbnails-grid');
+        if (thumbGrid) {
+            thumbGrid.innerHTML = '';
+            galleryData.forEach((imgObj, idx) => {
+                const thumbBtn = document.createElement('button');
+                thumbBtn.type = 'button';
+                thumbBtn.className = `pdp-thumb-item ${idx === 0 ? 'active' : ''}`;
+                thumbBtn.setAttribute('data-img', imgObj.src);
+                thumbBtn.setAttribute('data-alt', imgObj.alt);
+                thumbBtn.innerHTML = `<img src="${imgObj.src}" alt="${imgObj.alt}">`;
+                thumbBtn.addEventListener('click', () => updateMainImage(idx));
+                thumbGrid.appendChild(thumbBtn);
+            });
+        }
+
+        // Update Title, Rating, Reviews
+        const titleElem = document.querySelector('.pdp-title');
+        if (titleElem) titleElem.textContent = p.name;
+
+        const ratingScoreElem = document.querySelector('.pdp-rating-score');
+        if (ratingScoreElem) ratingScoreElem.textContent = `(${p.rating || 4.8})`;
+
+        const reviewsLink = document.querySelector('.pdp-reviews-link');
+        if (reviewsLink) reviewsLink.textContent = `${p.reviewsCount || 128} Reviews`;
+
+        const tabReviewsBtn = document.getElementById('tab-btn-reviews');
+        if (tabReviewsBtn) tabReviewsBtn.textContent = `Reviews (${p.reviewsCount || 128})`;
+
+        // Update Price Box
+        const priceElem = document.querySelector('.pdp-price');
+        if (priceElem) priceElem.textContent = p.price;
+
+        const oldPriceElem = document.querySelector('.pdp-old-price');
+        if (oldPriceElem) {
+            if (p.oldPrice) {
+                oldPriceElem.textContent = p.oldPrice;
+                oldPriceElem.style.display = 'inline';
+            } else {
+                oldPriceElem.style.display = 'none';
+            }
+        }
+
+        const saveBadgeElem = document.querySelector('.pdp-save-badge');
+        if (saveBadgeElem) {
+            if (p.saveText) {
+                saveBadgeElem.textContent = p.saveText;
+                saveBadgeElem.style.display = 'inline-block';
+            } else {
+                saveBadgeElem.style.display = 'none';
+            }
+        }
+
+        // Update Short Description
+        const shortDescElem = document.querySelector('.pdp-short-desc');
+        if (shortDescElem) shortDescElem.textContent = p.shortDesc;
+
+        // Update Stock Status, Category, SKU
+        const metaCategoryLink = document.querySelector('.pdp-sku-category .meta-link');
+        if (metaCategoryLink) {
+            metaCategoryLink.textContent = p.category;
+            metaCategoryLink.href = p.categoryUrl || 'shop.html';
+        }
+
+        const metaSkuVal = document.querySelector('.pdp-sku-category .meta-value');
+        if (metaSkuVal) metaSkuVal.textContent = p.sku || 'BOC-GT-001';
+
+        // Update Variations
+        const variationsContainer = document.querySelector('.pdp-variations');
+        if (variationsContainer && p.variations) {
+            variationsContainer.innerHTML = '';
+            Object.keys(p.variations).forEach(groupKey => {
+                const groupObj = p.variations[groupKey];
+                const varGroupDiv = document.createElement('div');
+                varGroupDiv.className = 'variation-group';
+
+                let optionsHTML = '';
+                if (Array.isArray(groupObj.options)) {
+                    groupObj.options.forEach(opt => {
+                        if (typeof opt === 'object') {
+                            const isActive = opt.name === groupObj.default ? 'active' : '';
+                            optionsHTML += `
+                                <button type="button" class="var-btn color-btn ${isActive}" data-group="${groupKey}" data-val="${opt.name}">
+                                    <span class="color-swatch ${opt.class}"></span>
+                                    <span>${opt.name}</span>
+                                </button>
+                            `;
+                        } else {
+                            const isActive = opt === groupObj.default ? 'active' : '';
+                            optionsHTML += `<button type="button" class="var-btn ${isActive}" data-group="${groupKey}" data-val="${opt}">${opt}</button>`;
+                        }
+                    });
+                }
+
+                varGroupDiv.innerHTML = `
+                    <label class="variation-label">${groupObj.label}: <span class="selected-value" id="${groupKey}SelectedVal">${groupObj.default}</span></label>
+                    <div class="variation-options">
+                        ${optionsHTML}
+                    </div>
+                `;
+
+                variationsContainer.appendChild(varGroupDiv);
+            });
+
+            // Rebind click listeners to variation buttons
+            const newVarBtns = variationsContainer.querySelectorAll('.var-btn');
+            newVarBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const group = btn.getAttribute('data-group');
+                    const value = btn.getAttribute('data-val');
+
+                    const groupBtns = variationsContainer.querySelectorAll(`.var-btn[data-group="${group}"]`);
+                    groupBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const labelSpan = document.getElementById(`${group}SelectedVal`);
+                    if (labelSpan) labelSpan.textContent = value;
+                });
+            });
+        }
+
+        // Update Feature Strip
+        const featureGrid = document.querySelector('.feature-strip-grid');
+        if (featureGrid && p.features) {
+            featureGrid.innerHTML = '';
+            p.features.forEach(feat => {
+                const featDiv = document.createElement('div');
+                featDiv.className = 'feature-strip-item';
+                featDiv.innerHTML = `
+                    <div class="feature-icon"><i data-lucide="${feat.icon}"></i></div>
+                    <div class="feature-info">
+                        <h4>${feat.title}</h4>
+                        <p>${feat.desc}</p>
+                    </div>
+                `;
+                featureGrid.appendChild(featDiv);
+            });
+        }
+
+        // Update Description Tab Bullets
+        const checklistUl = document.querySelector('.pdp-feature-checklist');
+        if (checklistUl && p.descriptionBullets) {
+            checklistUl.innerHTML = '';
+            p.descriptionBullets.forEach(bullet => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i data-lucide="check-circle-2" class="check-icon"></i><span>${bullet}</span>`;
+                checklistUl.appendChild(li);
+            });
+        }
+
+        // Update Specifications Table
+        const specsTbody = document.querySelector('.pdp-specs-table tbody');
+        if (specsTbody && p.specifications) {
+            specsTbody.innerHTML = '';
+            p.specifications.forEach(spec => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<th>${spec.label}</th><td>${spec.value}</td>`;
+                specsTbody.appendChild(tr);
+            });
+        }
+
+        // Render Related Products Grid
+        const relatedGrid = document.querySelector('.related-products-grid');
+        if (relatedGrid && p.relatedIds && typeof PRODUCTS_DATABASE !== 'undefined') {
+            relatedGrid.innerHTML = '';
+            p.relatedIds.forEach(relId => {
+                const relProd = PRODUCTS_DATABASE[relId];
+                if (relProd) {
+                    const cardDiv = document.createElement('div');
+                    cardDiv.className = 'catalog-card';
+                    cardDiv.innerHTML = `
+                        <button class="wishlist-heart" aria-label="Add to Wishlist" data-name="${relProd.name}"><i data-lucide="heart"></i></button>
+                        <div class="catalog-card-img">
+                            <a href="product-details.html?id=${relProd.id}"><img src="${relProd.images[0]}" alt="${relProd.name}"></a>
+                        </div>
+                        <div class="catalog-card-info">
+                            <h3><a href="product-details.html?id=${relProd.id}" style="color: inherit; text-decoration: none;">${relProd.name}</a></h3>
+                            <span class="catalog-price">${relProd.price}</span>
+                            <button class="add-to-cart-btn" data-name="${relProd.name}"><i data-lucide="shopping-cart"></i></button>
+                        </div>
+                    `;
+                    relatedGrid.appendChild(cardDiv);
+                }
+            });
+
+            // Bind click handlers for related products add to cart buttons
+            const relatedCartBtns = relatedGrid.querySelectorAll('.add-to-cart-btn');
+            relatedCartBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const name = btn.getAttribute('data-name');
+                    const cartCountBadge = document.getElementById('cartCount');
+                    if (cartCountBadge) {
+                        let val = parseInt(cartCountBadge.textContent) || 0;
+                        cartCountBadge.textContent = val + 1;
+                    }
+                    showToast(`🛒 Added "${name}" to your shopping cart!`);
+                });
+            });
+        }
+
+        // Compile Lucide Icons after DOM injection
+        refreshLucideIcons();
+    }
+
+    // Lucide Icon compile helper
+    function refreshLucideIcons() {
+        if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
+    }
+
+    // Gallery & Lightbox Logic
+    let galleryData = [
+        { src: 'assets/mercedes_amg_front.png', alt: 'Mercedes B/O Car (AMG) Front View' }
+    ];
     let currentImgIndex = 0;
 
     const mainImg = document.getElementById('pdpMainImage');
-    const thumbButtons = document.querySelectorAll('.pdp-thumb-item');
     const prevArrow = document.getElementById('galleryPrevBtn');
     const nextArrow = document.getElementById('galleryNextBtn');
 
     function updateMainImage(index) {
+        if (!galleryData || galleryData.length === 0) return;
         if (index < 0) index = galleryData.length - 1;
         if (index >= galleryData.length) index = 0;
         currentImgIndex = index;
@@ -33,6 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 150);
         }
 
+        const thumbButtons = document.querySelectorAll('.pdp-thumb-item');
         thumbButtons.forEach((btn, idx) => {
             if (idx === currentImgIndex) {
                 btn.classList.add('active');
@@ -42,10 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    thumbButtons.forEach((btn, idx) => {
-        btn.addEventListener('click', () => updateMainImage(idx));
-    });
-
     if (prevArrow) {
         prevArrow.addEventListener('click', () => updateMainImage(currentImgIndex - 1));
     }
@@ -53,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextArrow.addEventListener('click', () => updateMainImage(currentImgIndex + 1));
     }
 
-    // 2. Image Lightbox Zoom Modal
+    // Image Lightbox Zoom Modal
     const zoomBtn = document.getElementById('pdpZoomBtn');
     const lightboxModal = document.getElementById('pdpLightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -61,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxClose = document.getElementById('lightboxCloseBtn');
 
     function openLightbox() {
-        if (lightboxModal && lightboxImg) {
+        if (lightboxModal && lightboxImg && galleryData.length > 0) {
             lightboxImg.src = galleryData[currentImgIndex].src;
             if (lightboxCaption) {
                 lightboxCaption.textContent = galleryData[currentImgIndex].alt;
@@ -92,23 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape') closeLightbox();
     });
 
-    // 3. Variations Toggle (Color, Age, Battery)
-    const varButtons = document.querySelectorAll('.var-btn');
-    varButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const group = btn.getAttribute('data-group');
-            const value = btn.getAttribute('data-val');
-
-            const groupBtns = document.querySelectorAll(`.var-btn[data-group="${group}"]`);
-            groupBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const labelSpan = document.getElementById(`${group}SelectedVal`);
-            if (labelSpan) labelSpan.textContent = value;
-        });
-    });
-
-    // 4. Quantity Controls (+ / -)
+    // Quantity Controls
     const qtyMinusBtn = document.getElementById('qtyMinusBtn');
     const qtyPlusBtn = document.getElementById('qtyPlusBtn');
     const qtyInput = document.getElementById('qtyInput');
@@ -125,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Toast Notification Helper
+    // Toast Notification Helper
     const toast = document.getElementById('pdpToast');
     const toastMsg = document.getElementById('toastMessage');
     let toastTimeout = null;
@@ -142,13 +380,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 6. Add to Cart Action
+    // Add to Cart Action
     const addToCartBtn = document.getElementById('pdpAddToCartBtn');
     const cartCountBadge = document.getElementById('cartCount');
 
     if (addToCartBtn && cartCountBadge) {
         addToCartBtn.addEventListener('click', () => {
             const qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
+            const currentTitle = document.querySelector('.pdp-title')?.textContent || 'Product';
+            
             let currentCartVal = parseInt(cartCountBadge.textContent) || 0;
             cartCountBadge.textContent = currentCartVal + qty;
 
@@ -158,11 +398,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => cartHeaderBtn.style.transform = 'scale(1)', 300);
             }
 
-            showToast(`🛒 Added ${qty} x Mercedes B/O Car (AMG) to your shopping cart!`);
+            showToast(`🛒 Added ${qty} x ${currentTitle} to your shopping cart!`);
         });
     }
 
-    // 7. Buy Now Action
+    // Buy Now Action
     const buyNowBtn = document.getElementById('pdpBuyNowBtn');
     if (buyNowBtn) {
         buyNowBtn.addEventListener('click', () => {
@@ -178,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Wishlist Toggle Action
+    // Wishlist Toggle Action
     const wishlistToggleBtn = document.getElementById('pdpWishlistToggle');
     const wishlistCountBadge = document.getElementById('wishlistCount');
 
@@ -186,13 +426,14 @@ document.addEventListener('DOMContentLoaded', () => {
         wishlistToggleBtn.addEventListener('click', () => {
             let currentWishVal = parseInt(wishlistCountBadge.textContent) || 0;
             const isAdd = !wishlistToggleBtn.classList.contains('active');
+            const currentTitle = document.querySelector('.pdp-title')?.textContent || 'Product';
 
             if (isAdd) {
                 wishlistToggleBtn.classList.add('active');
                 const textSpan = wishlistToggleBtn.querySelector('.wishlist-text');
                 if (textSpan) textSpan.textContent = 'In Wishlist';
                 wishlistCountBadge.textContent = currentWishVal + 1;
-                showToast(`❤️ Added Mercedes B/O Car (AMG) to your wishlist!`);
+                showToast(`❤️ Added ${currentTitle} to your wishlist!`);
             } else {
                 wishlistToggleBtn.classList.remove('active');
                 const textSpan = wishlistToggleBtn.querySelector('.wishlist-text');
@@ -209,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Tabs Navigation & Smooth Scroll
+    // Tabs Navigation
     const tabBtns = document.querySelectorAll('.pdp-tab-btn');
     const tabPanels = document.querySelectorAll('.pdp-tab-panel');
 
@@ -256,8 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scrollToReviewsLink) scrollToReviewsLink.addEventListener('click', jumpToReviews);
     if (viewAllReviewsBtn) viewAllReviewsBtn.addEventListener('click', jumpToReviews);
 
-    // Initialize Lucide Icons
-    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-        lucide.createIcons();
-    }
+    // Initial Lucide icon compile
+    refreshLucideIcons();
+    setTimeout(refreshLucideIcons, 50);
 });

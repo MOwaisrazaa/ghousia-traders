@@ -1875,6 +1875,9 @@ img {
 .best-sellers-section {
     background-color: var(--bg-light);
 }
+.category-showcase-section {
+    border-top: 1px solid var(--border-color);
+}
 .best-sellers-header {
     display: flex;
     justify-content: space-between;

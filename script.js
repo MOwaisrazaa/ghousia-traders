@@ -755,5 +755,10 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.classList.add('active');
         });
     });
+
+    // Initial Lucide icons initialization
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 });
 
